@@ -4,8 +4,7 @@
   "description": "Social network template",
   "main": "./server/server.js",
   "scripts": {
-		"start":"node server/server",
-		"server":"nodemon server/server"
+		"start":"nodemon server/server"
   },
   "author": "GB",
   "license": "ISC",
