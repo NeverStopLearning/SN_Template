@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;sn_connector/routes/api/auth.js&apos; to &apos;users.js&apos;" description="Rename resource &apos;auth.js&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="routes/api/auth.js" name="users.js" stamp="1526297812417" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;sn_connector/models/Auth.js&apos; to &apos;User.js&apos;" description="Rename resource &apos;Auth.js&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="models/Auth.js" name="User.js" stamp="1526297826176" updateReferences="true"/>
+</session>
