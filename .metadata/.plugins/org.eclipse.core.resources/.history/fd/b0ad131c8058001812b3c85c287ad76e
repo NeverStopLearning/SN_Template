@@ -63,13 +63,10 @@ router.post('/login', (req, res) => {
 	const email = req.body.email;
 	const password = req.body.password;
 	
-	console.log("ping");
-	
 	//Find user by email.
 	User.findOne({email : email})
-		.then( user => {
-		
-			//-----------
+		.this( user => {
+			
 			//TODO Fix this so that hackers cant tell if this is a user or not. 
 			//Check for user
 			if(!user){
@@ -88,10 +85,8 @@ router.post('/login', (req, res) => {
 					
 					
 				});
-
-			//-----
 			
-		});
+		})
 	//.catch(err => console.log(err));
 	
 });

@@ -63,35 +63,17 @@ router.post('/login', (req, res) => {
 	const email = req.body.email;
 	const password = req.body.password;
 	
-	console.log("ping");
-	
 	//Find user by email.
 	User.findOne({email : email})
-		.then( user => {
-		
-			//-----------
+		.this( user => {
+			
 			//TODO Fix this so that hackers cant tell if this is a user or not. 
 			//Check for user
 			if(!user){
 				return res.status(404).json({ email: 'User not found' });
 			}
 			
-			// Check Password
-			bcrypt.compare(password, user.password)
-				.then(isMatch => {
-					if(isMatch){
-						res.json({ msg:'Success' });
-					}
-					else {
-						return res.status(400).json({ password: 'Password incorrect' });
-					}
-					
-					
-				});
-
-			//-----
-			
-		});
+		})
 	//.catch(err => console.log(err));
 	
 });
