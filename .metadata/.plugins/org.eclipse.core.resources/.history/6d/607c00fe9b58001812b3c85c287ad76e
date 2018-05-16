@@ -4,7 +4,6 @@ const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-const keys = require('../../config/keys.js');
 
 //Load User model
 const User = require('../../models/User.js');
@@ -88,7 +87,6 @@ router.post('/login', (req, res) => {
 						//User Matched
 						
 						
-						//Create JWT payload
 						const payload = { 
 								id: user.id,
 								name: user.name,
@@ -96,16 +94,7 @@ router.post('/login', (req, res) => {
 						}
 						
 						// Sign Token
-						jwt.sign(payload, 
-								keys.secretOrKey, 
-								{expiresIn: 3600 },
-								(err, token)=>{
-		 							res.json({
-										success: true,
-										token: 'Bearer '+ token
-									});
-								}
-						); //3600ms = 1h?
+						jwt.sign()
 						
 					}
 					else {
