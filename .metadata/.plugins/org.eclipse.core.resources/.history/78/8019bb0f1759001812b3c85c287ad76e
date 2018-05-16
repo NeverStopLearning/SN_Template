@@ -29,7 +29,7 @@ mongoose
 app.use(passport.initialize());
 
 //Passport Config
-require('../config/passport_config.js')(passport);
+require('../config/passport.js')(passport);
 
 
 //Use Routes
