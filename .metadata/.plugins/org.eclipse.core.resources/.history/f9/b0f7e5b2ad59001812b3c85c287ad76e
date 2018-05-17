@@ -27,14 +27,12 @@ router.get('/test', (req, res) => res.json({msg: "Users works"}));
 router.post('/register', (req, res) => {
 	
 //Add during Validations. Using "destructuring"---
-//	console.log('req.body', req.body);
 	const { errors, isValid } = validateRegisterInput(req.body);
-//	console.log('errors', errors);
-//	console.log('isValid', isValid);
-	
+	console.log('errors', errors);
+	console.log('isValid', isValid);
 	//Check Validation
 	if(!isValid){
-//		console.log('ping2');
+		console.log('ping2');
 		return res.status(400).json(errors);
 	}
 	
@@ -42,10 +40,10 @@ router.post('/register', (req, res) => {
 	
 	User.findOne({ email: req.body.email })
 		.then(user => {
-//			console.log('ping3');
+			console.log('ping3');
 			if(user){
 //				return res.status(400).json({email: 'Email already exist'});
-//				console.log('ping4');
+				console.log('ping4');
 				errors.email = 'Email already exist';
 				return res.status(400).json(errors.email);
 				

@@ -9,7 +9,7 @@ module.exports = function validateRegisterInput(data){
 		errors.name = "Name must be between 2 and 30 characters";
 	}
 	
-	//console.log('isEmpty(errors)', isEmpty(errors));
+	console.log('isEmpty(errors)', isEmpty(errors));
 	return {
 		errors : errors, // or just | errors, |
 		isValid: isEmpty(errors)
