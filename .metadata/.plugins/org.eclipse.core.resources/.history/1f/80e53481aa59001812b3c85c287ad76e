@@ -27,7 +27,7 @@ router.get('/test', (req, res) => res.json({msg: "Users works"}));
 router.post('/register', (req, res) => {
 	
 //Add during Validations. Using "destructuring"---
-	const { errors, isValid } = validateRegisterInput(req.body);
+	const { error, isValid } = validateRegiserInput(req.body);
 	
 	//Check Validation
 	if(!isValid){
