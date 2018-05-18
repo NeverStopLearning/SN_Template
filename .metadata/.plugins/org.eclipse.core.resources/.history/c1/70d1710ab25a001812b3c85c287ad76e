@@ -12,23 +12,26 @@ module.exports = function validateLoginInput(data){
 	
 	
 	
-	//validate email - order matters here so maybe use an "else if"
+	//validate email
+	console.log(data.email);
 	if(!Validator.isEmail(data.email)){
+		console.log("ping1");
 		errors.email = 'Email is invalid';
 	}
 	
 	if(Validator.isEmpty(data.email)){
+		console.log("ping2");
 		errors.email = 'Email field is required';
 	}
 	
 	
-	//validate password	
-	if(!Validator.isLength(data.password, { min: 5, max: 30})){
-		errors.password = "Password must be a least 5 characters";
-	}
-	
+	//validate password
 	if(Validator.isEmpty(data.password)){
 		errors.password = "Password field is required";
+	}
+	
+	if(!Validator.isLength(data.password, { min: 5, max: 30})){
+		errors.password = "Password must be a least 5 characters";
 	}
 	
 	

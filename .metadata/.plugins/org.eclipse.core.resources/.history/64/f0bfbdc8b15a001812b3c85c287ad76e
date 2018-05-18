@@ -7,10 +7,10 @@ module.exports = function validateRegisterInput(data){
 	let errors = {};
 	
 	//trim and initialize empty string for Validatory.isEmpty(string)
-	data.name = !isEmpty(data.name ? data.name.trim() : data.name) ? data.name.trim() : '' ;
-	data.email = !isEmpty(data.email ? data.email.trim() : data.email) ? data.email.trim() : '' ;
-	data.password = !isEmpty(data.password ? data.password.trim() : data.password) ? data.password.trim() : '' ;
-	data.password2 = !isEmpty(data.password2 ? data.password2.trim() : data.password2) ? data.password2.trim() : '' ;
+	data.name = !isEmpty(data.name) ? data.name.trim() : '' ;
+	data.email = !isEmpty(data.email) ? data.email.trim() : '' ;
+	data.password = !isEmpty(data.password) ? data.password.trim() : '' ;
+	data.password2 = !isEmpty(data.password2) ? data.password2.trim() : '' ;
 	
 	//validate name
 	if(!Validator.isLength(data.name, { min:2, max: 30})){
@@ -21,15 +21,19 @@ module.exports = function validateRegisterInput(data){
 		errors.name = 'Name field is required';
 	}
 	
-	//validate email - order matters here so maybe use an "else if". Check other validations
+	//validate email
+	console.log(data.email);
 	if(!Validator.isEmail(data.email)){
+		console.log("ping1");
 		errors.email = 'Email is invalid';
 	}
 	
 	if(Validator.isEmpty(data.email)){
+		console.log("ping2");
 		errors.email = 'Email field is required';
 	}
-		
+	
+	
 	
 	//validate password
 	if(Validator.isEmpty(data.password)){

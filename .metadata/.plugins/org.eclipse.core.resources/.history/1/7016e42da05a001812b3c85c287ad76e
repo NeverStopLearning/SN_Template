@@ -88,26 +88,12 @@ router.post('/register', (req, res) => {
 //@desc   Login user/ Returning JWT token
 //@access Public
 router.post('/login', (req, res) => {
-	
-	//--Duplicate code for validations. can I merge somewhere.-------
-	
-	const { errors, isValid } = validateLoginInput(req.body);
-
-	//Check Validation
-	if(!isValid){
-
-		return res.status(400).json(errors);
-	}
-	
-	//-----------------------------------
-	
-	
-	
 	//going to be sent a 'Form'. Get it from 'req.body'
 	const email = req.body.email;
 	const password = req.body.password;
 	
-
+	console.log("ping");
+	
 	//Find user by email.
 	User.findOne({email : email})
 		.then( user => {
@@ -116,9 +102,7 @@ router.post('/login', (req, res) => {
 			//TODO Fix this so that hackers cant tell if this is a user or not. 
 			//Check for user
 			if(!user){
-				//return res.status(404).json({ email: 'User not found' });
-				errors.email = "User not found";
-				return res.status(404).json(errors);
+				return res.status(404).json({ email: 'User not found' });
 			}
 			
 			// Check Password
@@ -151,10 +135,7 @@ router.post('/login', (req, res) => {
 						
 					}
 					else {
-						//return res.status(400).json({ password: 'Password incorrect' });
-						errors.password = "Password incorrect";
-						return res.status(400).json(errors);
-						
+						return res.status(400).json({ password: 'Password incorrect' });
 					}
 					
 					
@@ -168,7 +149,7 @@ router.post('/login', (req, res) => {
 });
 
 
-//@route  GET api/users/current
+//@route  POST api/users/current
 //@desc   test the token / returns the current users
 //@access Private
 router.get('/current', 
