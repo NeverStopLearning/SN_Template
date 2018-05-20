@@ -1,7 +1,0 @@
-const express = required('express');
-
-const app = express();
-
-app.get('/', () => res.send("Hello"));
-
-

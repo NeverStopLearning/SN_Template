@@ -1,0 +1,73 @@
+const express = require('express');
+const router = express.Router();
+const mongoose = require('mongoose');
+const passport = require('passport');
+
+
+//Load keys - May not need
+//const keys = require('../../config/keys.js');
+
+//Load Input Validation
+//const validateRegisterInput = require('../../validations/register.js');
+//const validateLoginInput = require('../../validations/login.js');
+
+//Load User model
+const User = require('../../models/User.js');
+const Profile = require('../../models/Profile.js');
+
+
+
+
+
+// @route  GET api/profile/test
+// @desc   Tests profile route
+// @access Public
+router.get('/test', (req, res) => res.json({msg: "Profile works"}));
+
+
+//@route  GET api/profile/current
+//@desc   test the token / returns the current users
+//@access Protected
+router.get('/current', 
+		passport.authenticate('jwt',{ session: false }),
+		(req, res) => {
+			//res.json({msg: 'Success'});
+			res.json({
+				id: req.user.id,
+				name: req.user.name,
+				email: req.user.email,
+				avatar: req.user.avatar
+			});
+		}
+);
+
+
+
+
+
+module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*// ----original --------------------
+const express = require('express');
+const router = express.Router();
+
+
+// @route  GET api/profile/test
+// @desc   Tests post route
+// @access Public
+router.get('/test', (req, res) => res.json({msg: "Profile works"}));
+
+module.exports = router;*/
