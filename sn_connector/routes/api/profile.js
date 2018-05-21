@@ -64,6 +64,99 @@ router.get('/',
 
 
 
+//@route  POST api/profile
+//@desc   Create or Edit user profile 
+//@access Private
+router.post('/', 
+		passport.authenticate('jwt',{ session: false }),
+		(req, res) => {
+//			console.log("ping")
+			
+//--Duplicate code for validations. can I merge somewhere.-------
+			
+			const { errors, isValid } = validateProfileInput(req.body);
+
+			//Check Validation
+			if(!isValid){
+
+				return res.status(400).json(errors);
+			}
+			
+			//-----------------------------------
+			
+			
+			//Get fields
+			const profileFields = {};
+			profileFields.user = req.user.id;
+			
+//		console.log("req", req);
+//		console.log("req.user.id", req.user.id );	
+		
+			
+			if(req.body.handle) profileFields.handle = req.body.handle;
+			if(req.body.company) profileFields.company = req.body.company;
+			if(req.body.website) profileFields.website = req.body.website;
+			if(req.body.location) profileFields.location = req.body.location;
+			if(req.body.bio) profileFields.bio = req.body.bio;
+			if(req.body.status) profileFields.status = req.body.status;
+			if(req.body.githubusername) profileFields.githubusername = req.body.githubusername;
+			
+			//Skills - Spilt into array
+			if(req.body.skills && typeof req.body.skills !== 'undefined') { // should this be a string "undefined"
+				profileFields.skills = req.body.skills.split(',');
+			}
+			
+			//Social media
+			profileFields.social = {}
+			if(req.body.youtube) profileFields.social.youtube = req.body.youtube.trim();
+			if(req.body.twitter) profileFields.social.twitter = req.body.twitter.trim();
+			if(req.body.facebook) profileFields.social.facebook = req.body.facebook.trim();
+			if(req.body.linkedin) profileFields.social.linkedin = req.body.linkedin.trim();
+			if(req.body.instagram) profileFields.social.instagram = req.body.instagram.trim();
+
+		
+			//check if there is a profile or not
+			Profile.findOne({ user: req.user.id })
+				.then(profile => {
+					
+					if(profile){
+						// Update existing profile
+						Profile.findOneAndUpdate(
+								{ user: req.user.id },
+								{ $set: profileFields },
+								{ new: true } //  | new: true | = return the updated data, aka data after update.
+							)
+							.then(profile => res.json(profile));
+					}
+					else{
+						// Create new profile
+						
+						//check if handle exists.
+						if(profileFields.handle){
+							Profile.findOne({ handle: profileFields.handle }) //should I put something so handle will always be populated? Will undefinded return an error?
+								.then(profile => {
+									if(profile){
+										errors.handle = "That handle already exists";
+										res.status(400).json(errors);
+									}
+									
+									//Save profile is none exists
+									new Profile(profileFields).save().then(profile => res.json(profile)); //hows does the constructor pass in values work here
+								});
+						}
+						else{
+//							console.log();
+							errors.handle= "No handle found";
+							res.status(400).json(errors);
+						}
+					}
+					
+				});
+			
+		}
+);
+
+
 
 
 module.exports = router;

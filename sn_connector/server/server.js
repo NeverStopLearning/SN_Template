@@ -12,6 +12,7 @@ const app = express();
 
 
 // Body parser middleware (whats the difference between app.use and app.get)
+// allows the use of "req.body" in models to get the values being passed back
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(bodyParser.json());
 

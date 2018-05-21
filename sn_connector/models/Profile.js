@@ -8,7 +8,7 @@ const ProfileSchema = new Schema({
 		type: Schema.Types.ObjectId,
 		ref:'user'
 	},
-	handle:{ // the | url.com/'handle' |
+	handle:{ // the | url.com/'handle' | mainly used for SearchEngineOptimization
 		type: String,
 		required: true,
 		max: 40
