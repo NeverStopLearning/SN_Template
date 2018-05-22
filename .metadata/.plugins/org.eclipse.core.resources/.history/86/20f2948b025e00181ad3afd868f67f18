@@ -176,7 +176,7 @@ router.get('/handle/:handle',(req,res)=>{
 			return res.json(profile);
 		})
 		.catch(err => {
-			errors.profile = "Error finding by handle";
+			errors.profile = "error";
 			return res.status(404).json( errors );
 		});
 });
@@ -202,7 +202,7 @@ router.get('/user/:user_id',(req,res)=>{
 			return res.json(profile);
 		})
 		.catch(err => {
-			errors.profile = "Error finding by user id";
+			errors.profile = "error";
 			return res.status(404).json( errors );
 		});
 });
@@ -222,13 +222,13 @@ router.get('/all',(req,res)=>{
 		.populate('user', ['name','avatar'])
 		.then(profile => {
 			if(!profile){
-				errors.noprofile = "There is no profile";
+				errors.noprofile = "There is no profile for this user";
 				return res.status(404).json( errors );
 			}
 			return res.json(profile);
 		})
 		.catch(err => {
-			errors.profile = "Error finding all profiles";
+			errors.profile = "error";
 			return res.status(404).json( errors );
 		});
 });

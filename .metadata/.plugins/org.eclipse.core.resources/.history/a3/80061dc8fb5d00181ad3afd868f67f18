@@ -4,7 +4,6 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const ProfileSchema = new Schema({
-	//I think there are 2 ids. One in User and one refering to the profile. 
 	user:{ //this allows | Profile.findOne()'.populate()' | this should add this object since it's mongoose managed
 		type: Schema.Types.ObjectId,
 		ref:'users' // ref model name used in export line

@@ -176,7 +176,7 @@ router.get('/handle/:handle',(req,res)=>{
 			return res.json(profile);
 		})
 		.catch(err => {
-			errors.profile = "Error finding by handle";
+			errors.profile = "error";
 			return res.status(404).json( errors );
 		});
 });
@@ -202,37 +202,10 @@ router.get('/user/:user_id',(req,res)=>{
 			return res.json(profile);
 		})
 		.catch(err => {
-			errors.profile = "Error finding by user id";
+			errors.profile = "error";
 			return res.status(404).json( errors );
 		});
 });
-
-
-
-
-//@route  GET api/profile/all    // change this to a range. Depending on the number of users, this could cause problems when getting a larger number.
-//@desc   Get all profile 
-//@access Public // can be private if we want. Just add the token passport setup
-router.get('/all',(req,res)=>{
-	
-	const errors = {};
-	
-//	Profile.findOne({ _id: req.params.user_id })// this will look up the profile id when passed it (_id 5b034e58ba1a7020e8b6725a) user id and profile Id are different
-	Profile.find()
-		.populate('user', ['name','avatar'])
-		.then(profile => {
-			if(!profile){
-				errors.noprofile = "There is no profile";
-				return res.status(404).json( errors );
-			}
-			return res.json(profile);
-		})
-		.catch(err => {
-			errors.profile = "Error finding all profiles";
-			return res.status(404).json( errors );
-		});
-});
-
 
 
 

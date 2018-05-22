@@ -218,7 +218,7 @@ router.get('/all',(req,res)=>{
 	const errors = {};
 	
 //	Profile.findOne({ _id: req.params.user_id })// this will look up the profile id when passed it (_id 5b034e58ba1a7020e8b6725a) user id and profile Id are different
-	Profile.find()
+	User.find()
 		.populate('user', ['name','avatar'])
 		.then(profile => {
 			if(!profile){
