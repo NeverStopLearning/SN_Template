@@ -35,55 +35,44 @@ module.exports = function validateProfileInput(data){
 //	console.log("data", data)
 	//validate optional urls for social media links and personal web site
 	if(!isEmpty(data.website)){
-		data.website = !isEmpty(data.website ? data.website.trim(): data.website) ? data.website.trim() : '' ;
-		
+//		console.log("ping1", data.website)
 		if(!Validator.isURL(data.website)){
 //			console.log("ping2", data.website)
 			errors.website = "Not a valid URL";
 		}
 	}
-	
-	if(!isEmpty(data.youtube)){
-		data.youtube = !isEmpty(data.youtube ? data.youtube.trim(): data.youtube) ? data.youtube.trim() : '' ;
-
+	/*
+	if(isEmpty(data.youtube)){
 		if(!Validator.isURL(data.youtube)){
 			errors.youtube = "Not a valid URL";
 		}
 	}
 	
-	if(!isEmpty(data.twitter)){
-		data.twitter = !isEmpty(data.twitter ? data.twitter.trim(): data.twitter) ? data.twitter.trim() : '' ;
-
+	if(isEmpty(data.twitter)){
 		if(!Validator.isURL(data.twitter)){
 			errors.twitter = "Not a valid URL";
 		}
 	}
 	
-	if(!isEmpty(data.facebook)){
-		data.facebook = !isEmpty(data.facebook ? data.facebook.trim(): data.facebook) ? data.facebook.trim() : '' ;
-
+	if(isEmpty(data.facebook)){
 		if(!Validator.isURL(data.facebook)){
 			errors.facebook = "Not a valid URL";
 		}
 	}
 	
-	if(!isEmpty(data.linkedin)){
-		data.linkedin = !isEmpty(data.linkedin ? data.linkedin.trim(): data.linkedin) ? data.linkedin.trim() : '' ;
-
+	if(isEmpty(data.linkedin)){
 		if(!Validator.isURL(data.linkedin)){
 			errors.linkedin = "Not a valid URL";
 		}
 	}
 	
-	if(!isEmpty(data.instagram)){
-		data.instagram = !isEmpty(data.instagram ? data.instagram.trim(): data.instagram) ? data.instagram.trim() : '' ;
-
+	if(isEmpty(data.instagram)){
 		if(!Validator.isURL(data.instagram)){
 			errors.instagram = "Not a valid URL";
 		}
 	}
+	*/
 	
-//	console.log("data", data)
 	
 	
 	

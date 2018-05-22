@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 const ProfileSchema = new Schema({
 	user:{ //this allows | Profile.findOne()'.populate()' | this should add this object since it's mongoose managed
 		type: Schema.Types.ObjectId,
-		ref:'users' // ref model name used in export line
+		ref:'user'
 	},
 	handle:{ // the | url.com/'handle' | mainly used for SearchEngineOptimization
 		type: String,

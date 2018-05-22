@@ -50,7 +50,6 @@ router.get('/',
 			const errors = {};
 			
 			Profile.findOne({ user: req.user.id })//mongoose function i believe. Seems to be used like 'jpa'
-				.populate('user', ['name','avatar']) // ref 'user' from model field name. //available do to how Profile model is setup. 
 				.then(profile => {  				
 					
 					if(!profile){						

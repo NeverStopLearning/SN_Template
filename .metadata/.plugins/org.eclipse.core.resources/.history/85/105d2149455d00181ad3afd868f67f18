@@ -36,7 +36,6 @@ module.exports = function validateProfileInput(data){
 	//validate optional urls for social media links and personal web site
 	if(!isEmpty(data.website)){
 		data.website = !isEmpty(data.website ? data.website.trim(): data.website) ? data.website.trim() : '' ;
-		
 		if(!Validator.isURL(data.website)){
 //			console.log("ping2", data.website)
 			errors.website = "Not a valid URL";
@@ -83,7 +82,7 @@ module.exports = function validateProfileInput(data){
 		}
 	}
 	
-//	console.log("data", data)
+	
 	
 	
 	
