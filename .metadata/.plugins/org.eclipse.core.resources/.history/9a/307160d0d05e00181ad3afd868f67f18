@@ -4,13 +4,12 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 
 
+//Load Input Validations
+//const validateRegisterInput = require('../../validations/register.js');
+
 //Load models
 const Post = require('../../models/Post.js');
 //const User = require('../../models/User.js');
-
-//Load Input Validations
-const validatePostInput = require('../../validations/post.js');
-
 
 
 
@@ -26,26 +25,8 @@ router.get('/test', (req, res) => res.json({msg: "Posts works"}));
 //@desc   Create post
 //@access Private
 router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
-	//--Duplicate code for validations. can I merge somewhere.-------
 	
-	const { errors, isValid } = validatePostInput(req.body);
-
-	//Check Validation
-	if(!isValid){
-
-		return res.status(400).json(errors);
-	}
 	
-	//-----------------------------------
-
-	const newPost = new Post({
-			text: req.body.text,
-			name: req.body.name,
-			avatar: req.body.name, //not sure why this is like this but wait til the end to see if this works
-			user: req.user.id
-	})
-	
-	newPost.save().then(post => res.json(post));
 	
 });
 
