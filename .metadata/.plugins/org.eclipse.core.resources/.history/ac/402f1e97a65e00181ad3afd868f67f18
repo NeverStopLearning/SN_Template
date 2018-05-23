@@ -347,34 +347,7 @@ router.delete('/experience/:exp_id', passport.authenticate('jwt', {session:false
 //--------------	
 		
 		//Splice selected out of array
-		profile.experience.splice(removeIndex, 1);
-		
-		
-		//Save changes
-		profile.save().then(profile => res.json(profile));
-	})
-	.catch(err => {
-		errors.profile = "error finding profile";
-		return res.status(404).json(errors);
-	});
-	
-	
-});
-
-
-//@route  DELETE api/profile/education/:edu_id
-//@desc   Delete education from user's education section of profile 
-//@access Private 
-router.delete('/education/:edu_id', passport.authenticate('jwt', {session:false}), (req, res)=>{
-	
-	
-	Profile.findOne({ user: req.user.id})
-	.then(profile => {
-		//Get index of object to be removed // I should be able to do this without map
-		const removeIndex = profile.education.map(item => item.id).indexOf(req.params.edu_id);
-		
-		//Splice selected out of array
-		profile.education.splice(removeIndex, 1);
+		profile.experience.splice(removeIndex);
 		
 		
 		//Save changes
@@ -390,31 +363,6 @@ router.delete('/education/:edu_id', passport.authenticate('jwt', {session:false}
 
 
 
-//@route  DELETE api/profile
-//@desc   Delete account (user & profile ) //test successfully deleted a user with no profile. I should test it with a user that has a profile
-//@access Private 
-router.delete('/', passport.authenticate('jwt', {session:false}), (req, res)=>{
-	
-	
-	Profile.findOneAndRemove({ user: req.user.id })
-		.then(() => {
-			
-			User.findOneAndRemove({ _id: req.user.id })
-				.then(()=>{
-					res.json({ success: true });
-				})
-				.catch(err => {
-					errors.profile = "error removing User";
-					return res.status(404).json(errors);
-				});
-		})
-		.catch(err => {
-			errors.profile = "error removing profile";
-			return res.status(404).json(errors);
-		});
-	
-	
-});
 
 
 module.exports = router;

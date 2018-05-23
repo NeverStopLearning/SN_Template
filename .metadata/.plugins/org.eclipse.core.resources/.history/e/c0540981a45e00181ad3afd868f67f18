@@ -66,7 +66,7 @@ router.post('/register', (req, res) => {
 					password: req.body.password
 				});
 				
-				bcrypt.genSalt(10, (err, salt) => {//what is '10' managing again?
+				bcrypt.genSalt(10, (err, salt) => {
 					bcrypt.hash(newUser.password, salt, (err, hash) => {
 						if(err){
 							throw err;
@@ -141,7 +141,7 @@ router.post('/login', (req, res) => {
 						// Sign Token
 						jwt.sign(payload, 
 								keys.secretOrKey, 
-								{expiresIn: 28800 }, // one hour in seconds = 3600 | 8hours in seconds = 28800
+								{expiresIn: 3600 },
 								(err, token)=>{
 		 							res.json({
 										success: true,
