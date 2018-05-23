@@ -12,7 +12,6 @@ const passport = require('passport');
 //const validateLoginInput = require('../../validations/login.js');
 const validateProfileInput = require('../../validations/profile.js');
 const validateExperienceInput = require('../../validations/experience.js');
-const validateEducationInput = require('../../validations/education.js');
 
 //Load models
 const User = require('../../models/User.js');
@@ -260,25 +259,6 @@ router.post('/experience', passport.authenticate('jwt', {session:false}), (req, 
 
 
 
-//@route  POST api/profile/experience // would this work when sending multiple educations inputs at once from the front? I feel like this may be forcing one at a time delivery
-//@desc   Add experience to user's profile 
-//@access Private 
-router.post('/education', passport.authenticate('jwt', {session:false}), (req, res)=>{
-	//--Duplicate code for validations. can I merge somewhere.-------
-	
-	const { errors, isValid } = validateEducationInput(req.body);
-
-	//Check Validation
-	if(!isValid){
-
-		return res.status(400).json(errors);
-	}
-	
-	//-----------------------------------
-	
-	
-	
-});
 
 
 
