@@ -6,7 +6,23 @@ const isEmpty = require('../util/is-empty.js');
 module.exports = function validateExperienceInput(data){
 	let errors = {};
 	
+	//trim and initialize empty string for Validatory.isEmpty(string)
+	data.title = !isEmpty(data.title ? data.title.trim(): data.title) ? data.title.trim() : '' ;
+	data.company = !isEmpty(data.company ? data.company.trim(): data.company) ? data.company.trim() : '' ;
+	data.from = !isEmpty(data.from ? data.from.trim(): data.from) ? data.from.trim() : '' ;
+
+	//validate required fields
+	if(Validator.isEmpty(data.title)){
+		errors.title = "Title field is required";
+	}
 	
+	if(Validator.isEmpty(data.company)){
+		errors.company = "Company field is required";
+	}
+	
+	if(Validator.isEmpty(data.from)){
+		errors.from = "From date field is required";
+	}
 	
 	
 	

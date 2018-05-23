@@ -133,7 +133,7 @@ router.post('/login', (req, res) => {
 						
 						//Create JWT payload
 						const payload = { 
-								id: user.id, // would changing this name change how we call "req.user.id" in other passport auth routes?
+								id: user.id, // would changing this name change how we call "req.user.id" in other passport auth routes
 								name: user.name,
 								avatar: user.avatar
 						}
