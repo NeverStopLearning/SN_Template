@@ -186,7 +186,7 @@ router.post('/unlike/:id',passport.authenticate('jwt',{ session:false }), ( req,
 					if(hasLiked){
 						//Get index of object to be removed // I should be able to do this without map
 						const removeIndex = post.likes.map(item => item.id).indexOf(req.params.id);
-//						console.log("removeIndex: "+ removeIndex);
+						console.log("removeIndex: "+ removeIndex);
 						
 						//Splice selected out of array
 						post.likes.splice(removeIndex, 1);
@@ -201,7 +201,7 @@ router.post('/unlike/:id',passport.authenticate('jwt',{ session:false }), ( req,
 					
 					}
 					else{
-						return res.json({ post: "User has not liked this post"});
+						return res.json({ post: "Unauthorized"});
 					}
 											
 				})

@@ -161,17 +161,10 @@ router.post('/like/:id', passport.authenticate('jwt',{ session:false }), ( req, 
 
 
 
-/*//@route  DELETE api/posts/like/:id
+//@route  DELETE api/posts/like/:id
 //@desc   Delete Like from post
 //@access Private
-router.delete('/like/:id',*/
-
-//     or		//should I use top of bottom?
-
-//@route  POST api/posts/unlike/:id
-//@desc   UnLike post
-//@access Private
-router.post('/unlike/:id',passport.authenticate('jwt',{ session:false }), ( req, res) => {
+router.delete('/like/:id', passport.authenticate('jwt',{ session:false }), ( req, res) => {
 	const errors = {};
 	
 	Profile.findOne({ user:req.user.id })
@@ -179,31 +172,28 @@ router.post('/unlike/:id',passport.authenticate('jwt',{ session:false }), ( req,
 						
 			Post.findById(req.params.id)
 				.then(post => {
-					//checking for previous likes
-					const hasLiked = post.likes.filter(like => like.user.toString() === req.user.id).length > 0;
-//					console.log("hasLiked: "+ hasLiked);
-					
-					if(hasLiked){
-						//Get index of object to be removed // I should be able to do this without map
-						const removeIndex = post.likes.map(item => item.id).indexOf(req.params.id);
-//						console.log("removeIndex: "+ removeIndex);
-						
-						//Splice selected out of array
-						post.likes.splice(removeIndex, 1);
-						
-//						//Remove user id to 'likes' array
-//						post.likes.unshift({user: req.user.id});
-						
-						//save
-						post.save()
-							.then(post => res.json(post))
-							.catch(err => res.json({ errorsaving: "Error saving"}));
-					
+					//-- duplicate code.  -------------
+					//Check for post owner 
+					const postUser = post.user.toString(); //post.user returns a string buffer. Thats probably y we need toString();
+//					console.log("postUser", postUser);
+					if(postUser !== req.user.id){
+						errors.post = "Unauthorized";
+						return res.status(401).json(errors);
 					}
-					else{
-						return res.json({ post: "User has not liked this post"});
-					}
-											
+			//----------------------------------
+					
+			//--- duplicate code --------------
+					//Get index of object to be removed // I should be able to do this without map
+					const removeIndex = post.likes.map(item => item.id).indexOf(req.params.id);
+
+					//Splice selected out of array
+					post.likes.splice(removeIndex, 1);
+					
+					//save
+					post.save()
+						.then(post => res.json({ success: true }))
+						.catch(err => res.json({ errorsaving: "Error saving"}));
+			//----------------------------------------
 				})
 				.catch(err => {
 					errors.post = "No posts found with this id";

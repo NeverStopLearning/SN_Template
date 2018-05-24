@@ -127,25 +127,21 @@ router.post('/like/:id', passport.authenticate('jwt',{ session:false }), ( req, 
 	
 	Profile.findOne({ user:req.user.id })
 		.then(profile => {
-						
+			
+			console.log(profile);
+			
+			//test
+//			Post.find().then(posts => res.json(posts));
+			
 			Post.findById(req.params.id)
 				.then(post => {
-					//checking for previous likes
-					const hasLiked = post.likes.filter(like => like.user.toString() === req.user.id).length > 0;
-//					console.log("hasLiked: "+ hasLiked);
+					const hasLiked = post.like.filter(like => like.user.toString() === req.user.id).length > 0;
+					console.log("hasLiked: "+ hasLiked);
 					
 					if(hasLiked){
-						errors.likes = "User already liked";
-						return res.status(400).json(errors);
+						
 					}
 					
-					//Add user id to 'likes' array
-					post.likes.unshift({user: req.user.id});
-						
-					//save
-					post.save()
-						.then(post => res.json(post))
-						.catch(err => res.json({ errorsaving: "Error saving"}));
 				})
 				.catch(err => {
 					errors.post = "No posts found with this id";
@@ -161,61 +157,7 @@ router.post('/like/:id', passport.authenticate('jwt',{ session:false }), ( req, 
 
 
 
-/*//@route  DELETE api/posts/like/:id
-//@desc   Delete Like from post
-//@access Private
-router.delete('/like/:id',*/
 
-//     or		//should I use top of bottom?
-
-//@route  POST api/posts/unlike/:id
-//@desc   UnLike post
-//@access Private
-router.post('/unlike/:id',passport.authenticate('jwt',{ session:false }), ( req, res) => {
-	const errors = {};
-	
-	Profile.findOne({ user:req.user.id })
-		.then(profile => {
-						
-			Post.findById(req.params.id)
-				.then(post => {
-					//checking for previous likes
-					const hasLiked = post.likes.filter(like => like.user.toString() === req.user.id).length > 0;
-//					console.log("hasLiked: "+ hasLiked);
-					
-					if(hasLiked){
-						//Get index of object to be removed // I should be able to do this without map
-						const removeIndex = post.likes.map(item => item.id).indexOf(req.params.id);
-//						console.log("removeIndex: "+ removeIndex);
-						
-						//Splice selected out of array
-						post.likes.splice(removeIndex, 1);
-						
-//						//Remove user id to 'likes' array
-//						post.likes.unshift({user: req.user.id});
-						
-						//save
-						post.save()
-							.then(post => res.json(post))
-							.catch(err => res.json({ errorsaving: "Error saving"}));
-					
-					}
-					else{
-						return res.json({ post: "User has not liked this post"});
-					}
-											
-				})
-				.catch(err => {
-					errors.post = "No posts found with this id";
-					return res.status(404).json( errors );
-				});
-			
-		})
-		.catch(err => {
-			errors.post = "No profile found with this id";
-			return res.status(404).json( errors );
-		});
-});
 
 
 
