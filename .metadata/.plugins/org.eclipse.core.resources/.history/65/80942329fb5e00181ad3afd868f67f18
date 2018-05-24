@@ -94,15 +94,15 @@ router.delete('/:id', passport.authenticate('jwt',{ session:false }), ( req, res
 			Post.findById(req.params.id)
 				.then(post => {
 					//Check for post owner
-					const postUser = post.user.toString(); //post.user returns a string buffer. Thats probably y we need toString();
-//					console.log("postUser", postUser);
+					const postUser = post.user.toString;
+					console.log("postUser", postUser);
 					if(postUser !== req.user.id){
 						errors.post = "Unauthorized";
 						return res.status(401).json();
 					}
 					
 					//Delete //should I add a catch for an errors?
-					post.remove().then(()=> res.json({ success: true }));
+//					post.remove().then(()=> res.json({ success: true }));
 					
 				})
 				.catch(err => {

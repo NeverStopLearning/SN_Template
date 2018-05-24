@@ -1,0 +1,64 @@
+const express = require('express');
+const router = express.Router();
+const mongoose = require('mongoose');
+const passport = require('passport');
+
+
+//Load models
+const Post = require('../../models/Post.js');
+//const User = require('../../models/User.js');
+
+//Load Input Validations
+const validatePostInput = require('../../validations/post.js');
+
+
+
+
+
+//@route  GET api/posts/test
+//@desc   Tests post route
+//@access Public
+router.get('/test', (req, res) => res.json({msg: "Posts works"}));
+
+
+
+//@route  POST api/posts
+//@desc   Create post
+//@access Private
+router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
+	//--Duplicate code for validations. can I merge somewhere.-------
+	
+	const { errors, isValid } = validatePostInput(req.body);
+
+	//Check Validation
+	if(!isValid){
+
+		return res.status(400).json(errors);
+	}
+	
+	//-----------------------------------
+
+	const newPost = new Post({
+			text: req.body.text,
+			name: req.body.name,
+			avatar: req.body.name, //not sure why this is like this but wait til the end to see if this works
+			user: req.user.id
+	})
+	
+	newPost.save().then(post => res.json(post));
+	
+});
+
+
+
+//@route  GET api/posts
+//@desc   Get all post // may need to set this up to take a user instead of date. All post may be many. Whould I ever need all post not filtered by a user or a date?
+//@access Private
+
+
+
+
+
+
+
+module.exports = router;

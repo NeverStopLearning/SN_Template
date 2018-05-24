@@ -4862,3 +4862,147 @@ org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://do
 
 !ENTRY org.eclipse.jface.text 2 0 2018-05-21 10:46:31.218
 !MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.wst.jsdt.ui 4 2 2018-05-23 21:50:07.549
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.wst.jsdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException: Invalid Expression : /@route  POST api/posts
+	at org.eclipse.wst.jsdt.core.dom.RegularExpressionLiteral.setRegularExpression(RegularExpressionLiteral.java:180)
+	at org.eclipse.wst.jsdt.core.dom.AST.newRegularExpressionLiteral(AST.java:1976)
+	at org.eclipse.wst.jsdt.internal.esprima.DOMASTConverter.convertLiteral(DOMASTConverter.java:871)
+	at org.eclipse.wst.jsdt.internal.esprima.DOMASTConverter.visit(DOMASTConverter.java:140)
+	at org.eclipse.wst.jsdt.internal.esprima.EStreeVisitor.callVisit(EStreeVisitor.java:109)
+	at org.eclipse.wst.jsdt.internal.esprima.EStreeVisitor.traverse(EStreeVisitor.java:63)
+	at org.eclipse.wst.jsdt.internal.esprima.DOMASTConverter.convert(DOMASTConverter.java:124)
+	at org.eclipse.wst.jsdt.internal.esprima.EsprimaParser.translate(EsprimaParser.java:204)
+	at org.eclipse.wst.jsdt.internal.esprima.EsprimaParser.parse(EsprimaParser.java:139)
+	at org.eclipse.wst.jsdt.core.dom.ASTParser.createAST(ASTParser.java:651)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider$1.run(ASTProvider.java:583)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.createAST(ASTProvider.java:576)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:511)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavascriptReconcilingStrategy$1.run(JavascriptReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavascriptReconcilingStrategy.reconcile(JavascriptReconcilingStrategy.java:76)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavascriptReconcilingStrategy.reconcile(JavascriptReconcilingStrategy.java:129)
+	at org.eclipse.wst.jsdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:85)
+	at org.eclipse.wst.jsdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:99)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:73)
+	at org.eclipse.wst.jsdt.internal.ui.text.JavaReconciler.process(JavaReconciler.java:374)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.wst.jsdt.ui 4 0 2018-05-23 21:50:07.555
+!MESSAGE Error in JSDT Core during AST creation
+!STACK 0
+java.lang.IllegalArgumentException: Invalid Expression : /@route  POST api/posts
+	at org.eclipse.wst.jsdt.core.dom.RegularExpressionLiteral.setRegularExpression(RegularExpressionLiteral.java:180)
+	at org.eclipse.wst.jsdt.core.dom.AST.newRegularExpressionLiteral(AST.java:1976)
+	at org.eclipse.wst.jsdt.internal.esprima.DOMASTConverter.convertLiteral(DOMASTConverter.java:871)
+	at org.eclipse.wst.jsdt.internal.esprima.DOMASTConverter.visit(DOMASTConverter.java:140)
+	at org.eclipse.wst.jsdt.internal.esprima.EStreeVisitor.callVisit(EStreeVisitor.java:109)
+	at org.eclipse.wst.jsdt.internal.esprima.EStreeVisitor.traverse(EStreeVisitor.java:63)
+	at org.eclipse.wst.jsdt.internal.esprima.DOMASTConverter.convert(DOMASTConverter.java:124)
+	at org.eclipse.wst.jsdt.internal.esprima.EsprimaParser.translate(EsprimaParser.java:204)
+	at org.eclipse.wst.jsdt.internal.esprima.EsprimaParser.parse(EsprimaParser.java:139)
+	at org.eclipse.wst.jsdt.core.dom.ASTParser.createAST(ASTParser.java:651)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider$1.run(ASTProvider.java:583)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.createAST(ASTProvider.java:576)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:511)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavascriptReconcilingStrategy$1.run(JavascriptReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavascriptReconcilingStrategy.reconcile(JavascriptReconcilingStrategy.java:76)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavascriptReconcilingStrategy.reconcile(JavascriptReconcilingStrategy.java:129)
+	at org.eclipse.wst.jsdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:85)
+	at org.eclipse.wst.jsdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:99)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:73)
+	at org.eclipse.wst.jsdt.internal.ui.text.JavaReconciler.process(JavaReconciler.java:374)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.wst.jsdt.ui 4 2 2018-05-23 21:50:08.186
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.wst.jsdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException: Invalid Expression : /@route  POST api/posts
+	at org.eclipse.wst.jsdt.core.dom.RegularExpressionLiteral.setRegularExpression(RegularExpressionLiteral.java:180)
+	at org.eclipse.wst.jsdt.core.dom.AST.newRegularExpressionLiteral(AST.java:1976)
+	at org.eclipse.wst.jsdt.internal.esprima.DOMASTConverter.convertLiteral(DOMASTConverter.java:871)
+	at org.eclipse.wst.jsdt.internal.esprima.DOMASTConverter.visit(DOMASTConverter.java:140)
+	at org.eclipse.wst.jsdt.internal.esprima.EStreeVisitor.callVisit(EStreeVisitor.java:109)
+	at org.eclipse.wst.jsdt.internal.esprima.EStreeVisitor.traverse(EStreeVisitor.java:63)
+	at org.eclipse.wst.jsdt.internal.esprima.DOMASTConverter.convert(DOMASTConverter.java:124)
+	at org.eclipse.wst.jsdt.internal.esprima.EsprimaParser.translate(EsprimaParser.java:204)
+	at org.eclipse.wst.jsdt.internal.esprima.EsprimaParser.parse(EsprimaParser.java:139)
+	at org.eclipse.wst.jsdt.core.dom.ASTParser.createAST(ASTParser.java:651)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider$1.run(ASTProvider.java:583)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.createAST(ASTProvider.java:576)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:511)
+	at org.eclipse.wst.jsdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:150)
+	at org.eclipse.wst.jsdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$3.run(SelectionListenerWithASTManager.java:135)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.wst.jsdt.ui 4 0 2018-05-23 21:50:08.188
+!MESSAGE Error in JSDT Core during AST creation
+!STACK 0
+java.lang.IllegalArgumentException: Invalid Expression : /@route  POST api/posts
+	at org.eclipse.wst.jsdt.core.dom.RegularExpressionLiteral.setRegularExpression(RegularExpressionLiteral.java:180)
+	at org.eclipse.wst.jsdt.core.dom.AST.newRegularExpressionLiteral(AST.java:1976)
+	at org.eclipse.wst.jsdt.internal.esprima.DOMASTConverter.convertLiteral(DOMASTConverter.java:871)
+	at org.eclipse.wst.jsdt.internal.esprima.DOMASTConverter.visit(DOMASTConverter.java:140)
+	at org.eclipse.wst.jsdt.internal.esprima.EStreeVisitor.callVisit(EStreeVisitor.java:109)
+	at org.eclipse.wst.jsdt.internal.esprima.EStreeVisitor.traverse(EStreeVisitor.java:63)
+	at org.eclipse.wst.jsdt.internal.esprima.DOMASTConverter.convert(DOMASTConverter.java:124)
+	at org.eclipse.wst.jsdt.internal.esprima.EsprimaParser.translate(EsprimaParser.java:204)
+	at org.eclipse.wst.jsdt.internal.esprima.EsprimaParser.parse(EsprimaParser.java:139)
+	at org.eclipse.wst.jsdt.core.dom.ASTParser.createAST(ASTParser.java:651)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider$1.run(ASTProvider.java:583)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.createAST(ASTProvider.java:576)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:511)
+	at org.eclipse.wst.jsdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:150)
+	at org.eclipse.wst.jsdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$3.run(SelectionListenerWithASTManager.java:135)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.wst.jsdt.ui 4 2 2018-05-23 21:50:09.822
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.wst.jsdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException: Invalid Expression : /@route  POST api/posts
+	at org.eclipse.wst.jsdt.core.dom.RegularExpressionLiteral.setRegularExpression(RegularExpressionLiteral.java:180)
+	at org.eclipse.wst.jsdt.core.dom.AST.newRegularExpressionLiteral(AST.java:1976)
+	at org.eclipse.wst.jsdt.internal.esprima.DOMASTConverter.convertLiteral(DOMASTConverter.java:871)
+	at org.eclipse.wst.jsdt.internal.esprima.DOMASTConverter.visit(DOMASTConverter.java:140)
+	at org.eclipse.wst.jsdt.internal.esprima.EStreeVisitor.callVisit(EStreeVisitor.java:109)
+	at org.eclipse.wst.jsdt.internal.esprima.EStreeVisitor.traverse(EStreeVisitor.java:63)
+	at org.eclipse.wst.jsdt.internal.esprima.DOMASTConverter.convert(DOMASTConverter.java:124)
+	at org.eclipse.wst.jsdt.internal.esprima.EsprimaParser.translate(EsprimaParser.java:204)
+	at org.eclipse.wst.jsdt.internal.esprima.EsprimaParser.parse(EsprimaParser.java:139)
+	at org.eclipse.wst.jsdt.core.dom.ASTParser.createAST(ASTParser.java:651)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider$1.run(ASTProvider.java:583)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.createAST(ASTProvider.java:576)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:511)
+	at org.eclipse.wst.jsdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:150)
+	at org.eclipse.wst.jsdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$3.run(SelectionListenerWithASTManager.java:135)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.wst.jsdt.ui 4 0 2018-05-23 21:50:09.822
+!MESSAGE Error in JSDT Core during AST creation
+!STACK 0
+java.lang.IllegalArgumentException: Invalid Expression : /@route  POST api/posts
+	at org.eclipse.wst.jsdt.core.dom.RegularExpressionLiteral.setRegularExpression(RegularExpressionLiteral.java:180)
+	at org.eclipse.wst.jsdt.core.dom.AST.newRegularExpressionLiteral(AST.java:1976)
+	at org.eclipse.wst.jsdt.internal.esprima.DOMASTConverter.convertLiteral(DOMASTConverter.java:871)
+	at org.eclipse.wst.jsdt.internal.esprima.DOMASTConverter.visit(DOMASTConverter.java:140)
+	at org.eclipse.wst.jsdt.internal.esprima.EStreeVisitor.callVisit(EStreeVisitor.java:109)
+	at org.eclipse.wst.jsdt.internal.esprima.EStreeVisitor.traverse(EStreeVisitor.java:63)
+	at org.eclipse.wst.jsdt.internal.esprima.DOMASTConverter.convert(DOMASTConverter.java:124)
+	at org.eclipse.wst.jsdt.internal.esprima.EsprimaParser.translate(EsprimaParser.java:204)
+	at org.eclipse.wst.jsdt.internal.esprima.EsprimaParser.parse(EsprimaParser.java:139)
+	at org.eclipse.wst.jsdt.core.dom.ASTParser.createAST(ASTParser.java:651)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider$1.run(ASTProvider.java:583)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.createAST(ASTProvider.java:576)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:511)
+	at org.eclipse.wst.jsdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:150)
+	at org.eclipse.wst.jsdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$3.run(SelectionListenerWithASTManager.java:135)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
