@@ -219,6 +219,172 @@ router.post('/unlike/:id',passport.authenticate('jwt',{ session:false }), ( req,
 
 
 
+//
+//@route  POST api/posts/comment/:post_id 
+//@desc   Add comment to a post
+//@access Private
+router.post('/comment/:post_id', passport.authenticate('jwt', { session: false }),(req, res) => {
+//--Duplicate code for validations. can I merge somewhere.-------
+	
+	const { errors, isValid } = validatePostInput(req.body);
+
+	//Check Validation
+	if(!isValid){
+
+		return res.status(400).json(errors);
+	}
+	
+//-----------------------------------
+	
+	
+	
+//	console.log("req.params.post_id: ",req.params.post_id);
+	
+	//why does this one not need to be wrapped in "Profile.findOne()" like the above
+	Post.findById(req.params.post_id)
+	.then(post => {
+		
+		const newComment = {
+				text: req.body.text,
+				name: req.body.name,
+				avatar: req.body.avatar,					
+				user: req.body.user
+		};
+		
+
+		//Add to comments array
+		post.comments.unshift(newComment);
+		
+//		console.log(post);
+		
+		
+		//save
+		post.save()
+			.then(post => res.json(post))
+			.catch(err => {
+				errors.post = "Error saving comment";
+				return res.status(404).json( errors );
+			});
+		
+	})
+	.catch(err => {
+		errors.post = "No post found with this id";
+		return res.status(404).json( errors );
+	});	
+	
+});
+
+
+
+
+//@route  POST api/posts/comment/:post_id/:com_id 
+//@desc   Delete comment to a post
+//@access Private
+router.delete('/comment/:post_id/:com_id', passport.authenticate('jwt', { session: false }),(req, res) => {
+	const errors = {};
+	
+	
+	//would this work?
+/*	Post.findOne({ comments: { _id: req.params.com_id} })
+	.then(post => {
+		
+		console.log(post);
+		
+//		const hasComment = post.comments.filter(comment => comment._id.toString() === req.params.com_id).length > 0;
+//		console.log("hasComment: "+ hasComment);
+
+		
+		
+		
+	})
+	.catch(err => {
+		errors.post = "No post found with this id";
+		return res.status(404).json( errors );
+	});*/
+	
+	
+	
+	
+	Post.findById(req.params.post_id)
+		.then(post => {
+			
+//			console.log(post);
+			
+			const hasComment = post.comments.filter(comment => comment._id.toString() === req.params.com_id).length > 0;
+//			console.log("hasComment: "+ hasComment);
+
+			if(hasComment){
+				//Get index of object to be removed 
+				const removeIndex = post.comments.map(item => item.id).indexOf(req.params.com_id);
+				
+				//Splice selected out of array
+				post.comments.splice(removeIndex, 1);
+//				console.log("post.comments: ", post.comments);
+			
+				//save
+				post.save()
+					.then(post => res.json(post))
+					.catch(err => {
+						errors.post = "Error removing comment";
+						return res.status(404).json( errors );
+					});	
+			}
+			else{
+				return res.json({ post: "No comments found"});
+			}
+			
+			
+		})
+		.catch(err => {
+			errors.post = "No post found with this id";
+			return res.status(404).json( errors );
+		});	
+	
+	
+	
+	
+	
+//	console.log(req.params);
+	//why does this one not need to be wrapped in "Profile.findOne()" like the above
+/*	
+	Post.findById(req.params.post_id)
+	.then(post => {
+//		console.log(post.comments);
+//		console.log("hasComment: "+ hasComment);
+
+		const hasComment = post.comments.filter(comment => comment.user.toString() === req.user.id).length > 0;
+		console.log("hasComment: "+ hasComment);
+		
+		if(hasComment){
+			//Get index of object to be removed 
+			const removeIndex = post.comments.map(item => item.id).indexOf(req.params.com_id);
+			
+			//Splice selected out of array
+			post.comments.splice(removeIndex, 1);
+		
+		
+			//save
+			post.save()
+				.then(post => res.json(post))
+				.catch(err => {
+					errors.post = "Error removing comment";
+					return res.status(404).json( errors );
+				});		
+		}
+		else{
+			return res.json({ post: "No comments found"});
+		}
+		
+	})
+	.catch(err => {
+		errors.post = "No post found with this id";
+		return res.status(404).json( errors );
+	});	
+	*/
+});
+
+
+
 
 
 
