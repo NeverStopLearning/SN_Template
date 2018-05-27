@@ -5,7 +5,10 @@
   "main": "./server/server.js",
   "scripts": {
     "start": "node server/server",
-    "server": "nodemon server/server"
+    "server": "nodemon server/server",
+    "ctest": "cd ../client && npm run testt",
+    "client": "cd ../client && npm run start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "GB",
   "license": "ISC",
@@ -21,6 +24,7 @@
     "validator": "^10.2.0"
   },
   "devDependencies": {
+    "concurrently": "^3.5.1",
     "nodemon": "^1.17.4"
   }
 }
