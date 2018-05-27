@@ -1,0 +1,14 @@
+import React, { Component } from 'react';
+
+
+const Footer = () = > {
+	render(){
+		return(
+				<footer className="br-color text-white mt-5 p-4 text-center">
+					
+				</footer>
+		)
+	}
+}
+
+export default Footer;

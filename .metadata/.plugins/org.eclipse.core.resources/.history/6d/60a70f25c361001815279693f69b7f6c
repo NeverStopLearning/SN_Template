@@ -1,0 +1,13 @@
+import React from 'react';
+
+
+export default () => {
+	render(){
+		return(
+				<footer className="bg-color text-white mt-5 p-4 text-center">
+					Copyright  {new Date().getFullYear()} 
+				</footer>
+		)
+	}
+};
+

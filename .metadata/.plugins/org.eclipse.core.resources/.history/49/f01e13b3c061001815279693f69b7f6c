@@ -1,0 +1,14 @@
+import React, { Component } from 'react';
+
+
+const componentName = () = > {
+	render(){
+		return(
+				<div>
+				
+				</div>
+		)
+	}
+}
+
+export default varName;

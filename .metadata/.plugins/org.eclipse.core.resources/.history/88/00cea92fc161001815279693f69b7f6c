@@ -1,0 +1,14 @@
+import React, { Component } from 'react';
+
+
+const Footer = () = > {
+	render(){
+		return(
+				<div>
+				
+				</div>
+		)
+	}
+}
+
+export default Footer;
