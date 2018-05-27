@@ -5,7 +5,6 @@
   "dependencies": {
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
-    "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4"
   },
   "scripts": {
@@ -13,8 +12,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "testt": "echo ping",
-    "dev": "cd ../sn_connector && npm run dev"
+    "testt":"echo ping",
+    "dev":"cd ../sn_connector npm run dev"
   },
-  "proxy": "http://localhost:5000"
+  "proxy":"http://localhost:5000" 
 }
