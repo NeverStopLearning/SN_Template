@@ -51,14 +51,6 @@ class Login extends Component {
 //		ev.persist(); interesting function
 
 		ev.preventDefault();
-		
-		const user = {
-			email: this.state.email,
-			password: this.state.password
-		};
-		
-//		console.log(user);
-
 	}
 	
 	
