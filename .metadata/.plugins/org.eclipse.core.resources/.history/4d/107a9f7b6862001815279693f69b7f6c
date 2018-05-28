@@ -15,7 +15,7 @@ class Register extends Component {
 		};
 		
 		this.handleChange = this.handleChange.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
+		this.onSubmit = this.onSubmit.bind(this);
 	}
 	
 	render(){
@@ -26,7 +26,7 @@ class Register extends Component {
 				        <div className="col-md-8 m-auto">
 				          <h1 className="display-4 text-center">Sign Up</h1>
 				          <p className="lead text-center">Create your DevConnector account</p>
-				          <form onSubmit={this.handleSubmit}>
+				          <form action="create-profile.html">
 				            <div className="form-group">
 				              <input type="text" className="form-control form-control-lg" placeholder="Name" name="name" value={this.state.name} onChange={this.handleChange} /*required*/ />
 				            </div>
@@ -55,21 +55,9 @@ class Register extends Component {
 		this.setState({[ev.target.name]: ev.target.value}); //I like this method. 
 	}
 	
-	handleSubmit(ev){
-//		console.log("ping");
-		ev.preventDefault();
+	onSubmit(ev){
 		
-		const newUser = {
-				name: this.state.name,
-				email: this.state.email,
-				password: this.state.password,
-				password2: this.state.password2
-		}
-		
-		console.log(newUser);
 	}
-	
-	
 }
 
 export default Register;
