@@ -16,5 +16,8 @@
     "testt": "echo ping",
     "dev": "cd ../sn_connector && npm run dev"
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:5000",
+  "devDependencies": {
+    "axios": "^0.18.0"
+  }
 }

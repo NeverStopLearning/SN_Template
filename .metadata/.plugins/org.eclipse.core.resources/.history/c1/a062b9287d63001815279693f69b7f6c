@@ -70,16 +70,6 @@ class Register extends Component {
 		}
 		
 //		console.log(newUser);
-		
-		//TODO move to a restAPI file/component so all everyone can use same one.
-		//axios - uses proxy in server file to skip the http ~ 5000
-		axios.post('/api/users/register', newUser)
-			.then(res => {
-				console.log("res", res);
-			})
-			.catch(err => console.log("Error registering: ", err.response.data));
-		
-		
 	}
 	
 	
