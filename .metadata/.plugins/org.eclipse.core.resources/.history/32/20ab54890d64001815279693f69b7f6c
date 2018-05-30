@@ -4,7 +4,8 @@ import './css/App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import {Provider} from 'react-redux'; //Provider is the store and must wrap everything
-import store from './util/store.js';
+import { createStore, applyMiddleware } from 'redux';
+
 
 import Navbar from './components/layout/Navbar.js';
 import Footer from './components/layout/Footer.js';
@@ -13,6 +14,8 @@ import Login from  './components/auth/Login.js';
 import Register from  './components/auth/Register.js';
 
 
+//const store = createStore(reduce, initState, enhancer);
+const store = createStore(()=>[], {}, applyMiddleware());
 
 class App extends Component {
   render() {

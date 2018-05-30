@@ -4,15 +4,12 @@ import './css/App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import {Provider} from 'react-redux'; //Provider is the store and must wrap everything
-import store from './util/store.js';
 
 import Navbar from './components/layout/Navbar.js';
 import Footer from './components/layout/Footer.js';
 import Landing from  './components/layout/Landing.js';
 import Login from  './components/auth/Login.js';
 import Register from  './components/auth/Register.js';
-
-
 
 class App extends Component {
   render() {
