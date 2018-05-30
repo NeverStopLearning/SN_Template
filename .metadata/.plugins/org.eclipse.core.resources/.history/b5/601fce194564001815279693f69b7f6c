@@ -117,7 +117,7 @@ Register.propTypes = {
 
 //the "state" means the store and the props mean the components
 const mapStateToProps = (state) => ({
-	//should I return this? might not have to since it's only one line.
+	//should I return this?
 	auth: state.auth //state.'auth' comes from the 'auth: ' in rootReducer (in "reducers/index.js")
 });
 

@@ -1,0 +1,10 @@
+import * from './types';
+
+//Register User
+export const registerUser = (userData) => {
+	return {
+		type: types.TEST_DISPATCH,
+		payload: userData
+	};
+}
+

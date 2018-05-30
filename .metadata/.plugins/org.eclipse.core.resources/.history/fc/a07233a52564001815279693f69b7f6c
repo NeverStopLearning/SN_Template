@@ -2,13 +2,11 @@ import React, { Component } from 'react';
 import cn from 'classnames';
 import {connect} from 'react-redux';
 
-import PropTypes from 'prop-types';
-
-//bring in actions for 'register'
+//bring in actions
 import { registerUser } from '../../actions/authActions.js';
 
-//alternative to "Fetch". Dependencies only setup in dev. Replaced by redux
-//import axios from 'axios';
+//alternative to "Fetch". Dependencies only setup in dev.
+import axios from 'axios';
 
 
 // a 'container' is a react component that works with redux
@@ -34,12 +32,9 @@ class Register extends Component {
 		const { errors } = this.state;
 //		const errors = this.state.errors; //same as above
 		
-		const { user } = this.props.auth;
-		
 		
 		return(
 				  <div className="register">
-				  {user? user.name : null /* Test */}
 				    <div className="container">
 				      <div className="row">
 				        <div className="col-md-8 m-auto">
@@ -95,33 +90,16 @@ class Register extends Component {
 		
 		//Will be replaced by Redux. Currently used in Dev only
 		//axios - uses proxy in server file to skip the http ~ 5000
-		/*axios.post('/api/users/register', newUser)
+		axios.post('/api/users/register', newUser)
 			.then(res => {
 				console.log("res", res);
 			})
 			.catch(err => this.setState({ errors: err.response.data }));
-		*/
 		
-		this.props.registerUser(newUser);
+		
 	}
 	
 	
 }
 
-
-Register.propTypes = {
-		registerUser: PropTypes.func.isRequired,
-		auth: PropTypes.object.isRequired
-}
-
-
-//the "state" means the store and the props mean the components
-const mapStateToProps = (state) => ({
-	//should I return this? might not have to since it's only one line.
-	auth: state.auth //state.'auth' comes from the 'auth: ' in rootReducer (in "reducers/index.js")
-});
-
-
-//export default Register;
-//export default connect(state , {actions})(Register);
-export default connect(mapStateToProps, {registerUser})(Register);
+export default Register;

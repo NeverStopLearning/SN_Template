@@ -34,12 +34,10 @@ class Register extends Component {
 		const { errors } = this.state;
 //		const errors = this.state.errors; //same as above
 		
-		const { user } = this.props.auth;
 		
 		
 		return(
 				  <div className="register">
-				  {user? user.name : null /* Test */}
 				    <div className="container">
 				      <div className="row">
 				        <div className="col-md-8 m-auto">
@@ -117,7 +115,7 @@ Register.propTypes = {
 
 //the "state" means the store and the props mean the components
 const mapStateToProps = (state) => ({
-	//should I return this? might not have to since it's only one line.
+	//should I return this?
 	auth: state.auth //state.'auth' comes from the 'auth: ' in rootReducer (in "reducers/index.js")
 });
 
