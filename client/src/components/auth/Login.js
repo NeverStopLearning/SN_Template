@@ -57,7 +57,9 @@ class Login extends Component {
 			password: this.state.password
 		};
 		
-//		console.log(user);
+		
+		//TODO remove test;
+		console.log(user);
 
 	}
 	
