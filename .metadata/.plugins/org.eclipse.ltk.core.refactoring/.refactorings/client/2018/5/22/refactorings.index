@@ -8,3 +8,5 @@
 1527442187407	Copy file
 1527686844577	Rename resource 'Util'
 1527686976585	Move 'util' to 'src'
+1527793544945	Move 'is-empty.js' to 'validations''
+1527795253807	Rename resource 'validations''

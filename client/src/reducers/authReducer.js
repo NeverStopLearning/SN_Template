@@ -1,5 +1,7 @@
 //import { TEST_DISPATCH } from '../actions/types.js';
-//import * as actions from '../actions/types.js';
+import * as actions from '../actions/types.js';
+
+import isEmpty from '../validations/is-empty.js';
 
 
 
@@ -19,6 +21,15 @@ export default function(state = initialState, action){
 				...state,
 				user: action.payload
 			}*/
+	
+		case actions.SET_CURRENT_USER:
+//			console.log("SET_CURRENT_USER");
+			return {
+				...state,
+				isAuthenticated: !isEmpty(action.payload),
+				user:action.payload
+			}			
+		
 		default:
 			return state;
 	}

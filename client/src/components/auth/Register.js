@@ -130,6 +130,6 @@ const mapStateToProps = (state) => {
 
 
 //export default Register;
-//export default connect(state , {actions})(Register);
+//export default connect(state (store state?) , {actions})(Register);
 //export default connect(mapStateToProps, {registerUser})(Register);
-export default connect(mapStateToProps, {registerUser})(withRouter(Register)); //need for redirecting page from 'action'. Could use a redirect in render() that looks at a value in the store.
+export default connect(mapStateToProps, {registerUser})(withRouter(Register)); //need 'withRouter' for redirecting page from 'action'. Could use a redirect in render() that looks at a value in the store.
