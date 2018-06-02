@@ -24,6 +24,15 @@ class Login extends Component {
 		
 	}
 	
+	
+	//Duplicate code as below. Turn into a function. 
+	//This prevents '/login' from loading. (componentWillReceiveProps() does not stop it from loading) 
+	componentDidMount(){
+		if(this.props.auth.isAuthenticated){
+			this.props.history.push('/dashboard');
+		}
+	}
+	
 	componentWillReceiveProps(nextProps){
 		if(nextProps.auth.isAuthenticated){
 //			console.log("nextProps.auth.isAuthenticated: ", nextProps.auth.isAuthenticated);

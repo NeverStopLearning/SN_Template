@@ -141,7 +141,7 @@ router.post('/login', (req, res) => {
 						// Sign Token
 						jwt.sign(payload, 
 								keys.secretOrKey, 
-								{expiresIn: 28800 }, // one hour in seconds = 3600 | 8hours in seconds = 28800
+								{expiresIn: 28800 }, // should make this a config file var? -- one hour in seconds = 3600 | 8hours in seconds = 28800
 								(err, token)=>{
 		 							res.json({
 										success: true,

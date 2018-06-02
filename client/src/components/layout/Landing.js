@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom'; //<Link to="component"
 
+//bringing in redux.
+import { connect } from 'react-redux';
+import {PropTypes} from 'prop-types';
 
 class Landing extends Component {
+	
+	//Duplicate code in Login.js. Leave it be? 
+	//This prevents '/landing' from loading. (componentWillReceiveProps() does not stop it from loading) 
+	componentDidMount(){
+		if(this.props.auth.isAuthenticated){
+			this.props.history.push('/dashboard');
+		}
+	}
 	
 	render(){
 		return(
@@ -27,5 +38,14 @@ class Landing extends Component {
 	
 }
 
+Landing.proptypes = {
+		auth: PropTypes.object.isRequired
+}
 
-export default Landing;
+
+const mapStateToProps = (state) => ({
+	auth: state.auth
+});
+
+//export default Landing;
+export default connect(mapStateToProps)(Landing);

@@ -1,0 +1,91 @@
+import React, { Component } from 'react';
+import {Link} from 'react-router-dom'; //<Link to="component"
+
+//connecting to redux so nav bar can reflect user and state
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+import cn from 'classnames';
+
+import {logoutUser} from '../../actions/authActions.js';
+
+class Navbar extends Component {
+	render(){
+		
+		const { isAuthenticated, user } = this.props.auth;
+		
+		return(
+				<nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
+			    <div className="container">
+			      <Link className="navbar-brand" to="/">DevConnector</Link>
+			      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
+			        <span className="navbar-toggler-icon"></span>
+			      </button>
+
+			      <div className="collapse navbar-collapse" id="mobile-nav">
+			        <ul className="navbar-nav mr-auto">
+			          <li className="nav-item">
+			            <Link className="nav-link" to="profiles"> Developers
+			            </Link>
+			          </li>
+			        </ul>
+
+			        {this.Links()}
+			      </div>
+			    </div>
+			  </nav>
+		)
+	}
+	
+	
+	Links(){
+		
+		console.log('ping');
+		
+		//??? Why is this 'var = ();' what is this style used for? 
+		
+		const authLinks = (
+				<ul className="navbar-nav ml-auto">
+		          <li className="nav-item">
+		            <a href="#" className="nav-link" onClick={this.handleLogout.bind(this)} >Logout</a>		          
+		          </li>
+		        </ul>
+		);
+		
+		const guestLinks = (
+				<ul className="navbar-nav ml-auto">
+		          <li className="nav-item">
+		            <Link className="nav-link" to="/register">Sign Up</Link>
+		          </li>
+		          <li className="nav-item">
+		            <Link className="nav-link" to="/login">Login</Link>
+		          </li>
+		        </ul>
+		);
+		
+		return authLinks;
+		
+	}
+	
+	handleLogout(ev){
+		ev.preventDefault();
+		this.props.logoutUser();		
+	}
+	
+	
+	
+}
+
+
+Navbar.propTypes ={
+		logoutUser:PropTypes.func.isRequired,
+		auth: PropTypes.object.isRequired
+};
+
+//I'm pretty sure this is the "store"'s state.
+const mapStateToProps = (state) => ({ // y is this '({})' instead of just '{}'
+	auth: state.auth
+});
+
+
+//export default Navbar;
+export default connect(mapStateToProps, {logoutUser})(Navbar);

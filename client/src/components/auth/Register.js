@@ -29,6 +29,15 @@ class Register extends Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 	
+	
+	//Duplicate code in Login.js. Leave it be? 
+	//This prevents '/register' from loading. (componentWillReceiveProps() does not stop it from loading) 
+	componentDidMount(){
+		if(this.props.auth.isAuthenticated){
+			this.props.history.push('/dashboard');
+		}
+	}
+	
 	componentWillReceiveProps(nextProps){
 		if(nextProps.errors){
 			this.setState({errors: nextProps.errors});

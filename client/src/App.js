@@ -8,7 +8,7 @@ import store from './util/store.js';
 
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './util/setAuthToken.js';
-import { setCurrentUser } from './actions/authActions.js';
+import { setCurrentUser, logoutUser } from './actions/authActions.js';
 
 //components
 import Navbar from './components/layout/Navbar.js';
@@ -29,8 +29,31 @@ if(localStorage.jwtToken){
 	//Decode token and get user info and exp
 	const decoded = jwt_decode(localStorage.jwtToken);
 	
+	//??? whats the difference between using 'store.dispactch' and just 'dispatch'? When and Why?
 	//Set user and isAuthenticated. can call any 'action' with 'store.dispatch(action)';
 	store.dispatch(setCurrentUser(decoded)); 
+	
+	//Check for expired token. --??? Should probably add the check on rest calls too. look into best ways to do 'timed-out' functionality
+	const currentTime = Date.now() / 1000; // dte/1000 because it's in milliseconds. 
+	
+//	console.log("currentTime: ", currentTime);
+//	console.log("decoded.exp: ", decoded.exp);
+//	console.log("decoded.exp < currentTime: "+ (decoded.exp < currentTime));
+	
+	
+	if (decoded.exp < currentTime){
+		//Logout user
+		store.dispatch(logoutUser());
+		
+		//Clear current Profile (TODO since we haven't added profiles yet)
+	
+		//Redirect to login. --is this the best way to do this? I still like my global redirect idea. Look into it.
+		window.location.href = '/login'; //works but only on refresh. DOES NOT WORK when navigating from one /profile to /theNext.
+		
+	}
+	
+	
+	
 }
 
 
