@@ -1,0 +1,20 @@
+import React, { Component } from 'react';
+
+//implementing redux
+import {connect} from 'react-redux';
+import ProPTypes from 'prop-types';
+
+//actions
+import { getCurrentProfile, setProfileLoading } from '../../actions/profileActions.js';
+
+class Dashboard extents Component {
+	render(){
+		return(
+				<div>
+				
+				</div>
+		)
+	}
+}
+
+export default Dashboard;

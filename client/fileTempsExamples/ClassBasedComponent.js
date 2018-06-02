@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 
 
-class componentName extents Component {
+class componentName extends Component {
 	render(){
 		return(
 				<div>
@@ -19,7 +19,7 @@ export default componentName;
 
 
 
-/*export default class componentName extents Component {
+/*export default class componentName extends Component {
 	render(){
 		return(
 				<div>

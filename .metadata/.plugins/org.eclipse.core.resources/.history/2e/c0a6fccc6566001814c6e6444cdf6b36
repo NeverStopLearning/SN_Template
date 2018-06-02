@@ -1,0 +1,15 @@
+import React, { Component } from 'react';
+
+
+
+class Dashboard extents Component {
+	render(){
+		return(
+				<div>
+				
+				</div>
+		)
+	}
+}
+
+export default Dashboard;

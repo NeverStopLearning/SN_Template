@@ -8,7 +8,10 @@ import store from './util/store.js';
 
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './util/setAuthToken.js';
+
+//actions
 import { setCurrentUser, logoutUser } from './actions/authActions.js';
+import { clearCurrentProfile } from './actions/profileActions.js';
 
 //components
 import Navbar from './components/layout/Navbar.js';
@@ -16,6 +19,7 @@ import Footer from './components/layout/Footer.js';
 import Landing from  './components/layout/Landing.js';
 import Login from  './components/auth/Login.js';
 import Register from  './components/auth/Register.js';
+import Dashboard from  './components/dashboard/Dashboard.js';
 
 
 
@@ -43,9 +47,10 @@ if(localStorage.jwtToken){
 	
 	if (decoded.exp < currentTime){
 		//Logout user
-		store.dispatch(logoutUser());
+		store.dispatch(logoutUser()); //maybe use store when {connect} is absent
 		
-		//Clear current Profile (TODO since we haven't added profiles yet)
+		//Clear current Profile 
+		store.dispatch(clearCurrentProfile());
 	
 		//Redirect to login. --is this the best way to do this? I still like my global redirect idea. Look into it.
 		window.location.href = '/login'; //works but only on refresh. DOES NOT WORK when navigating from one /profile to /theNext.
@@ -72,6 +77,8 @@ class App extends Component {
 	       	<div className="container">
 	       		<Route exact path="/login" component={Login} />
 	       		<Route exact path="/register" component={Register} />
+	       		
+	       		<Route exact path="/dashboard" component={Dashboard} />
 	       	</div>
 	       	
 	       	<Footer />
