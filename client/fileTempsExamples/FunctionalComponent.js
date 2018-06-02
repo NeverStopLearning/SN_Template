@@ -29,4 +29,44 @@ const componentName = () = > {
 
 export default varName;
 
+
+
+import React, { Component } from 'react';
+
+
+const TextFieldGroup = () => {
+		return(
+				<div>
+				
+				</div>
+		)
+}
+
+export default TextFieldGroup;
+
+
+
+
+const TextFieldGroup = ({
+	//when using a functional based component that accepts properties
+	name,
+	placeholder,
+	value,
+	label,
+	error,
+	info,
+	type,
+	onChange,
+	disabled
+	
+}) => {
+		return(
+				<div>
+				
+				</div>
+		)
+}
+
+export default TextFieldGroup;
+
 */
