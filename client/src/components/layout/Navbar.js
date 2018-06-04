@@ -91,8 +91,10 @@ class Navbar extends Component {
 		
 //		this.props.history.push('/login');
 //		this.props.history.push('/dashboard');
+		
+//		being done by 'PrivateRoute' in App.js
 		//Redirect to login. --is this the best way to do this? I still like my global redirect idea. Look into it.
-		window.location.href = '/login';
+//		window.location.href = '/login';
 		
 		
 	}

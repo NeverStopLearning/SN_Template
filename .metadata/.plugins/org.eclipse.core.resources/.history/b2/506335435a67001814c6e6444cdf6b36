@@ -1,0 +1,25 @@
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
+
+//redux
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
+//test user's authentication then redirect to private routes.
+const PrivateRoute ({component: Component, ...rest}) => {
+	
+		return(
+				<div>
+				
+				</div>
+		)
+
+};
+
+
+const mapStateToProps = (state) => ({
+	auth: state.auth
+});
+
+
+export default connect(mapStateToProps)(PrivateRoute);

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;client/src/components/common/PrivateRoute&apos; to &apos;PrivateRoute.js&apos;" description="Rename resource &apos;PrivateRoute&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/components/common/PrivateRoute" name="PrivateRoute.js" stamp="1528042804556" updateReferences="true"/>
+</session>

@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import './css/App.css';
-
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+                                        //'Switch' is needed for Redirect in 'PrivateRoute' component 
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import {Provider} from 'react-redux'; //Provider is the store and must wrap everything
 import store from './util/store.js';
 
+//utils
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './util/setAuthToken.js';
+import PrivateRoute from './components/common/PrivateRoute.js';
 
 //actions
 import { setCurrentUser, logoutUser } from './actions/authActions.js';
@@ -78,7 +80,10 @@ class App extends Component {
 	       		<Route exact path="/login" component={Login} />
 	       		<Route exact path="/register" component={Register} />
 	       		
-	       		<Route exact path="/dashboard" component={Dashboard} />
+	       		{/* <Route exact path="/dashboard" component={Dashboard} /> */}
+	       		<Switch> {/*redirect in below acts funny without. doesn't seem to pass the props*/}
+	       			<PrivateRoute exact path="/dashboard" component={Dashboard}   /*auth={this.props.auth}*/ />
+	       		</Switch>		
 	       	</div>
 	       	
 	       	<Footer />
