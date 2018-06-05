@@ -33,7 +33,6 @@ class CreateProfile extends Component {
 				errors: {}
 		};
 		
-		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		
 	}
@@ -76,7 +75,13 @@ class CreateProfile extends Component {
 	
 	
 	handleChange(ev){
-		this.setState({[ev.target.name]: ev.target.value}); 
+		
+//		console.log("ev: ", ev.target.name);
+//		console.log("ev value: ", ev.target.value);
+//		this.setState({[ev.target.name]: ev.target.value}); 
+		const name="handle";
+		const value="test";
+		this.setState({[name]: value}); 
 	}
 	
 	

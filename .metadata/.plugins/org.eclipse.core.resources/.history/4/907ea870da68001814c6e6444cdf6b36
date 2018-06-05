@@ -33,7 +33,6 @@ class CreateProfile extends Component {
 				errors: {}
 		};
 		
-		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		
 	}
@@ -59,7 +58,7 @@ class CreateProfile extends Component {
 										name="handle" 	 
 										value={this.state.handle}
 										onChange={this.handleChange}
-										error={this.state.errors.handle}
+										error={errors.handle}
 										info="A unique handle for your profile.(is this the '/name' for the url or the profile name?) Your full name, company name, nickname, ect.(Currently can't be changed? should i allow this to be changed?)"
 											
 									/>

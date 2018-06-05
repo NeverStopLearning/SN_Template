@@ -76,7 +76,14 @@ class CreateProfile extends Component {
 	
 	
 	handleChange(ev){
-		this.setState({[ev.target.name]: ev.target.value}); 
+		
+//		console.log("ev: ", ev.target.name);
+//		console.log("ev value: ", ev.target.value);
+//		this.setState({[ev.target.name]: ev.target.value}); 
+		const name="handle";
+		const value="test";
+//		this.setState({[name]: value}); 
+		console.log(this.state);
 	}
 	
 	
