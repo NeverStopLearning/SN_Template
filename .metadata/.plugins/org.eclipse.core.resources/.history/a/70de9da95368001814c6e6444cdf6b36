@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 
 
-const TextFieldGroup = ({
+const SelectListGroup = ({
 	//when using a functional based component that accepts properties
 	name,
 	placeholder,
@@ -27,7 +27,7 @@ const TextFieldGroup = ({
 };
 
 
-TextFieldGroup.propTypes = {
+SelectListGroup.propTypes = {
 	name: PropTypes.string.isRequired,	
 	placeholder: PropTypes.string,
 	value: PropTypes.string.isRequired,
@@ -40,8 +40,8 @@ TextFieldGroup.propTypes = {
 };
 
 
-TextFieldGroup.defaultProps = {
+SelectListGroup.defaultProps = {
 	type: 'text'	
 };
 
-export default TextFieldGroup;
+export default SelectListGroup;

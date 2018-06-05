@@ -5,10 +5,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 //components
-//import TextFieldGroup from '../common/TextFieldGroup.js';
-//import TextAreaFieldGroup from '../common/TextAreaFieldGroup.js';
-//import SelectListGroup from '../common/SelectListGroup.js';
-//import InputGroup from '../common/InputGroup.js';
+import TextFieldGroup from '../common/TextFieldGroup.js';
 
 
 class CreateProfile extends Component {
@@ -43,7 +40,7 @@ class CreateProfile extends Component {
 						<div className="row">
 							<div className="col-md-8 m-auto">
 								
-								<h1 className="display-4 text-center">Create your profile</h1>
+								<h1 className="display-4 text-center"></h1>
 								<p className="lead text-center" >
 									Let's get some information to make your profile standout.
 								</p>

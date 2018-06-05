@@ -9,7 +9,7 @@ const TextFieldGroup = ({
 	name,
 	placeholder,
 	value,
-	label,//TODO add this to input
+	label,
 	error,
 	info,
 	type,

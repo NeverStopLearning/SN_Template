@@ -5,10 +5,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 //components
-//import TextFieldGroup from '../common/TextFieldGroup.js';
-//import TextAreaFieldGroup from '../common/TextAreaFieldGroup.js';
-//import SelectListGroup from '../common/SelectListGroup.js';
-//import InputGroup from '../common/InputGroup.js';
+import TextFieldGroup from '../common/TextFieldGroup.js';
+import TextAreaFieldGroup from '../common/TextAreaFieldGroup.js';
+import SelectListGroup from '../common/SelectListGroup.js';
+import InputGroup from '../common/InputGroup.js';
 
 
 class CreateProfile extends Component {
