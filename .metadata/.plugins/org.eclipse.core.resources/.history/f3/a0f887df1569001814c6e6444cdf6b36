@@ -36,7 +36,6 @@ class CreateProfile extends Component {
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		
-		this.socialInputs = this.socialInputs.bind(this);
 	}
 	
 	
@@ -44,7 +43,7 @@ class CreateProfile extends Component {
 		
 		const { errors, displaySocialInputs } = this.state;
 		
-		const socialInputs = this.socialInputs(displaySocialInputs, errors);
+		socialInputs = this.socialInputs().bind(this);
 		
 		//Select options for status
 		const options = [
@@ -173,7 +172,7 @@ class CreateProfile extends Component {
 									{socialInputs}
 									
 									<input type="submit" value="Submit" className=" btn btn-info btn-block mt-4" />
-										
+									{socalInputs}
 								</form>
 								
 							</div>
@@ -194,7 +193,7 @@ class CreateProfile extends Component {
 	};
 	
 	
-	socialInputs(display, errors){
+	socalInputs(display){
 		
 		if(display){
 			return (
@@ -208,47 +207,6 @@ class CreateProfile extends Component {
 							error={errors.twitter}
 						
 						/>
-
-						<InputGroup
-							placeholder="Facebook Page URL"
-							name="facebook"
-							icon="fab fa-facebook"
-							value={this.state.facebook}
-							onChange={this.handleChange}
-							error={errors.facebook}
-						
-						/>
-						
-						<InputGroup
-							placeholder="Linkedin Profile URL"
-							name="linkedin"
-							icon="fab fa-linkedin"
-							value={this.state.linkedin}
-							onChange={this.handleChange}
-							error={errors.linkedin}
-						
-						/>
-						
-						<InputGroup
-							placeholder="Youtube Channel URL"
-							name="youtube"
-							icon="fab fa-youtube"
-							value={this.state.youtube}
-							onChange={this.handleChange}
-							error={errors.youtube}
-						
-						/>
-						
-						<InputGroup
-							placeholder="Instagram Page URL"
-							name="instagram"
-							icon="fab fa-instagram"
-							value={this.state.instagram}
-							onChange={this.handleChange}
-							error={errors.instagram}
-						
-						/>
-						
 					</div>
 			)
 		}

@@ -10,7 +10,7 @@ const InputGroup = ({
 	value,
 	error,
 	icon,
-//	type,
+	type,
 	info,
 	onChange
 	
@@ -39,15 +39,15 @@ InputGroup.propTypes = {
 	value: PropTypes.string.isRequired,
 	icon: PropTypes.string,
 	error: PropTypes.string,
-//	type: PropTypes.string.isRequired,
+	type: PropTypes.string.isRequired,
 	info: PropTypes.string,
 	onChange: PropTypes.func.isRequired
 };
 
 
-//InputGroup.defaultProps ={
-//	type:'text';	
-//};
+InputGroup.defaultProps ={
+	type:'text';	
+};
 
 
 

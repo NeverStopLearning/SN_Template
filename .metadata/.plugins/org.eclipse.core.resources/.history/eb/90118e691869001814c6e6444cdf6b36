@@ -220,35 +220,44 @@ class CreateProfile extends Component {
 						/>
 						
 						<InputGroup
-							placeholder="Linkedin Profile URL"
+						placeholder="Linkedin Profile URL"
 							name="linkedin"
-							icon="fab fa-linkedin"
-							value={this.state.linkedin}
-							onChange={this.handleChange}
-							error={errors.linkedin}
+								icon="fab fa-linkedin"
+									value={this.state.linkedin}
+						onChange={this.handleChange}
+						error={errors.linkedin}
 						
 						/>
 						
 						<InputGroup
-							placeholder="Youtube Channel URL"
-							name="youtube"
-							icon="fab fa-youtube"
-							value={this.state.youtube}
-							onChange={this.handleChange}
-							error={errors.youtube}
+						placeholder="Twitter Profile URL"
+						name="twitter"
+							icon="fab fa-twitter"
+								value={this.state.twitter}
+						onChange={this.handleChange}
+						error={errors.twitter}
 						
 						/>
 						
 						<InputGroup
-							placeholder="Instagram Page URL"
-							name="instagram"
-							icon="fab fa-instagram"
-							value={this.state.instagram}
-							onChange={this.handleChange}
-							error={errors.instagram}
+						placeholder="Twitter Profile URL"
+						name="twitter"
+						icon="fab fa-twitter"
+							value={this.state.twitter}
+						onChange={this.handleChange}
+						error={errors.twitter}
 						
 						/>
 						
+						<InputGroup
+						placeholder="Twitter Profile URL"
+						name="twitter"
+						icon="fab fa-twitter"
+						value={this.state.twitter}
+						onChange={this.handleChange}
+						error={errors.twitter}
+						
+						/>
 					</div>
 			)
 		}
