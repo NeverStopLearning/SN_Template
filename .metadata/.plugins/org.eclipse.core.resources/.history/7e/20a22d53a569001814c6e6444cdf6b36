@@ -40,7 +40,7 @@ class Dashboard extends Component {
 							
 							<div style={{ marginBottom:'60px' }} /> {/* should probably change to css instead of adding this inline */}
 
-							<button className="btn btn-danger" onClick={this.handleDelete.bind(this)}> Delete Account </button>
+							<button className="btn btn-danger" onClick={this.handleDelete.bind(this)}> </button>
 							
 						</div>						
 				);

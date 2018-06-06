@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 //actions
-import { getCurrentProfile, deleteAccount } from '../../actions/profileActions.js';
+import { getCurrentProfile } from '../../actions/profileActions.js';
 
 //components
 import Spinner from '../common/Spinner.js';
@@ -38,9 +38,9 @@ class Dashboard extends Component {
 							
 							{/* TODO: add exp and edu here */}
 							
-							<div style={{ marginBottom:'60px' }} /> {/* should probably change to css instead of adding this inline */}
+							<div style={{ marginBottom:'60px' }}></div>{/* should probably change to css instead of adding this inline */}
 
-							<button className="btn btn-danger" onClick={this.handleDelete.bind(this)}> Delete Account </button>
+							<button className="btn btn-danger" onClick={this.handleDelete.bind(this)}> </button>
 							
 						</div>						
 				);
@@ -55,7 +55,7 @@ class Dashboard extends Component {
 						</div>	
 				);
 			}
-		}
+		
 		
 		return(
 				<div className = "dashboard">
@@ -70,19 +70,11 @@ class Dashboard extends Component {
 				</div>
 		)
 	}
-
-	handleDelete(ev){
-		this.props.deleteAccount();
-	}
-	
-	
-	
 }
 
 
 Dashboard.propTypes = {
 	getCurrentProfile: PropTypes.func.isRequired,
-	deleteAccount: PropTypes.func.isRequired,
 	auth: PropTypes.object.isRequired,
 	profile: PropTypes.object.isRequired
 };
@@ -92,5 +84,5 @@ const mapStateToProps = (state) => ({
 	auth: state.auth,
 	profile: state.profile
 });
-										// isn't this 'mapToDispatch()' or somthing?
-export default connect(mapStateToProps, {getCurrentProfile, deleteAccount })(Dashboard);
+
+export default connect(mapStateToProps, {getCurrentProfile})(Dashboard);

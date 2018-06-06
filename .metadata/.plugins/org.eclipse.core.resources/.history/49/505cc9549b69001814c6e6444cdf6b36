@@ -1,0 +1,15 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const DashboardActionButtons = () => {
+
+		return(
+				<div>
+				
+				</div>
+		)
+
+};
+
+export default DashboardActionButtons;
+

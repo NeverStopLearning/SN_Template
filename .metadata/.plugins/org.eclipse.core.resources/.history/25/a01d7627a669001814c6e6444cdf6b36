@@ -69,7 +69,7 @@ export const deleteAccount = () => dispatch => {
 					payload:{}
 				})
 			)
-			.catch(err => //this basically logs user out due to how it's setup
+			.catch(err => 
 				dispatch({
 					type:actions.GET_PROFILE,
 					payload: {}

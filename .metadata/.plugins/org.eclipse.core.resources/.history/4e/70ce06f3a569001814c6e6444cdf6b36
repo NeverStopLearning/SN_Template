@@ -65,11 +65,11 @@ export const deleteAccount = () => dispatch => {
 		axios.delete('/api/profile')
 			.then(
 				dispatch({
-					type:actions.SET_CURRENT_USER, 
+					type:actions.SET_CURRENT_USER, //this basically logs user out
 					payload:{}
 				})
 			)
-			.catch(err => //this basically logs user out due to how it's setup
+			.catch(err => 
 				dispatch({
 					type:actions.GET_PROFILE,
 					payload: {}

@@ -10,7 +10,7 @@ import axios from 'axios';
 
 
 //Get current profile
-export const getCurrentProfile = () => dispatch => {
+export const getCurrentProfile = ()=> dispatch => {
 	dispatch(setProfileLoading());
 	
 	axios.get('/api/profile')
@@ -59,22 +59,9 @@ export const clearCurrentProfile = () => {
 	}
 }
 
-//Delete account & profile
-export const deleteAccount = () => dispatch => {
-	if(window.confirm('Delete Accout? (WARNING: This action cannot be undone)')){//delete confirmations here instead of at call?
-		axios.delete('/api/profile')
-			.then(
-				dispatch({
-					type:actions.SET_CURRENT_USER, 
-					payload:{}
-				})
-			)
-			.catch(err => //this basically logs user out due to how it's setup
-				dispatch({
-					type:actions.GET_PROFILE,
-					payload: {}
-				})
-		);
+export const deleteAccount = () => {
+	return { // is this auto dispatched? or dispatch(callThis())
+		type:actions.CLEAR_CURRENT_PROFILE
 	}
 }
 
