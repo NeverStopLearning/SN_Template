@@ -172,7 +172,7 @@ class CreateProfile extends Component {
 											
 									<div className="mb-3">
 										<button className="btn btn-light" type="button" 
-											onClick={()=>{ //TODO look into where prevState came from. Are there others?
+											onClick={(ev)=>{ //TODO look into where prevState came from. Are there others?
 //												ev.preventDefault();// needed this because i forgot the "type" it was defaulting to type of 'submit'
 												this.setState(prevState => ({
 													displaySocialInputs: !prevState.displaySocialInputs

@@ -13,10 +13,6 @@ import InputGroup from '../common/InputGroup.js';
 //action
 import {createProfile} from '../../actions/profileActions.js';
 
-//when using this.props.history to redirect from action. Need to use withRouter
-import { withRouter } from 'react-router-dom';
-
-
 class CreateProfile extends Component {
 	constructor(props){
 		super(props);
@@ -140,7 +136,7 @@ class CreateProfile extends Component {
 									/>
 											
 									<TextFieldGroup 
-										placeholder="* Skills"
+										placeholder="skills"
 										name="skills" 	 
 										value={this.state.skills}
 										onChange={this.handleChange}
@@ -171,9 +167,9 @@ class CreateProfile extends Component {
 											
 											
 									<div className="mb-3">
-										<button className="btn btn-light" type="button" 
-											onClick={()=>{ //TODO look into where prevState came from. Are there others?
-//												ev.preventDefault();// needed this because i forgot the "type" it was defaulting to type of 'submit'
+										<button className="btn btn-light" 
+											onClick={(ev)=>{ //TODO look into where prevState came from. Are there others?
+												ev.preventDefault();// y do I need this but the tut doesn't? 9/51
 												this.setState(prevState => ({
 													displaySocialInputs: !prevState.displaySocialInputs
 												}));
@@ -303,4 +299,4 @@ const mapStateToProps = (state) => ({
 });
 
 
-export default connect(mapStateToProps, {createProfile})(withRouter(CreateProfile));
+export default connect(mapStateToProps, {createProfile})(CreateProfile);
