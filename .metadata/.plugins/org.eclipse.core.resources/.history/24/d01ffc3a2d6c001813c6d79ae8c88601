@@ -81,7 +81,7 @@ export const deleteAccount = () => dispatch => {
 
 //Add experience
 export const addExperience = (expData, history) => dispatch => {
-	axios.post('api/profile/experience', expData)
+	axios.post('api/profile/experience')
 		.then(res => history.push('/dashboard'))
 		.catch(err => {
 			dispatch({
