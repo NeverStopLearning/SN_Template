@@ -1,0 +1,69 @@
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+
+//redux
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+
+//components
+import TextFieldGroup from '../common/TextFieldGroup.js';
+import TextAreaFieldGroup from '../common/TextAreaFieldGroup.js';
+
+//action
+
+
+//To fix the problem with errors not always being removed, look into adding a "onComponentUnload" if one or something
+//Or add a variable in the error object that tells if the error has already been displayed. 
+class AddExperience extends Component {
+	
+	constructor(props){
+		super(props);
+		
+		this.state = {
+				company:'',
+				title:'',
+				location:'',
+				from:'',
+				to:'',
+				current:false,
+				description:'',
+				errors:{},
+				disabled:false	
+		};
+		
+	}
+	
+	
+	render(){
+		
+		const { errors } = this.state;
+		
+		return(
+				<div className='add-experience'>
+					<div className='container'>
+						<div className='row'>
+				
+						</div>
+					</div>
+				</div>
+		)
+	}
+}
+
+
+AddExperience.propTypes = {
+	profile: PropTypes.object.isRequired,
+	errors: PropTypes.object.isRequired
+};
+
+
+const mapStateToProps = (state) => ({
+	profile: state.profile,
+	errors: state.errors
+});
+
+
+
+export default connect(mapStateToProps)(withRouter(AddExperience));
+
+
