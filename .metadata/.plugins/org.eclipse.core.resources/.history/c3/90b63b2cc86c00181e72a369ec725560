@@ -1,0 +1,33 @@
+import React, { Component } from 'react';
+
+//redux
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
+//enable redirect ( used for delete )
+import { withRouter } from 'react-router-dom';
+
+
+class Experience extends Component {
+	
+	//should I create this outside the class? what would be the benefits?
+	const expData = this.props.experience.map(exp => ( // ( must have something to do with the returning of jsx/html-in-jsx?
+			
+	));
+	
+	render(){
+		return(
+				<div>
+				
+				</div>
+		)
+	}
+}
+
+
+//Experience.propTypes = {};
+
+//const mapStateToProps = (state) => ({});
+
+
+export default connect(null)(withRouter(Experience));

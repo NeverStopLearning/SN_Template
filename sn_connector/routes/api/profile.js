@@ -284,7 +284,7 @@ router.post('/experience', passport.authenticate('jwt', {session:false}), (req, 
 
 
 //@route  POST api/profile/education // would this work when sending multiple educations inputs at once from the front? I feel like this may be forcing one at a time delivery
-//@desc   Add experience to user's profile 
+//@desc   Add education to user's profile 
 //@access Private 
 router.post('/education', passport.authenticate('jwt', {session:false}), (req, res)=>{
 	//--Duplicate code for validations. can I merge somewhere.-------

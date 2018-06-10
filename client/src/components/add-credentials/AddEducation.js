@@ -12,8 +12,12 @@ import TextAreaFieldGroup from '../common/TextAreaFieldGroup.js';
 //action
 import { addEducation } from '../../actions/profileActions.js';
 
-//To fix the problem with errors not always being removed, look into adding a "onComponentUnload" if one or something
-//Or add a variable in the error object that tells if the error has already been displayed. 
+//bugs
+	//To fix the problem with errors not always being removed, look into adding a "onComponentUnload" if one or something
+	//Or add a variable in the error object that tells if the error has already been displayed. 
+
+	//currently it looks like user can have null 'to' and not be 'current' make 'to' date required?
+
 class AddEducation extends Component {
 	
 	constructor(props){

@@ -79,6 +79,7 @@ export const deleteAccount = () => dispatch => {
 }
 
 
+
 //Add experience
 export const addExperience = (expData, history) => dispatch => {
 	axios.post('api/profile/experience', expData)
@@ -102,6 +103,28 @@ export const addEducation = (eduData, history) => dispatch => {
 		})
 	}); 
 }
+
+
+//Delete account & profile
+export const deleteExperience = (id) => dispatch => {
+//	console.log('ping');
+	if(window.confirm('Delete record? (WARNING: This action cannot be undone)')){//delete confirmations here instead of at call?
+		axios.delete(`/api/profile/experience/{$id}`)
+		.then(res => {
+			dispatch({
+				type:actions.GET_PROFILE,
+				payload: res.data
+			});
+		})
+		.catch(err => //this basically logs user out due to how it's setup
+		dispatch({
+			type: actions.GET_ERRORS,
+			payload:err.response.data
+		})
+		);
+	}
+}
+
 
 
 
