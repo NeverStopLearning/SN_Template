@@ -127,9 +127,9 @@ export const deleteExperience = (id) => dispatch => {
 
 //Delete education
 export const deleteEducation = (id) => dispatch => {
-//	console.log('ping');
-	if(window.confirm('Delete record? (WARNING: This action cannot be undone)')){//delete confirmations here instead of at call?
-		axios.delete(`/api/profile/education/{$id}`)
+	console.log('ping');
+/*	if(window.confirm('Delete record? (WARNING: This action cannot be undone)')){//delete confirmations here instead of at call?
+		axios.delete(`/api/profile/experience/{$id}`)
 		.then(res => {
 			dispatch({
 				type:actions.GET_PROFILE,
@@ -142,7 +142,7 @@ export const deleteEducation = (id) => dispatch => {
 			payload:err.response.data
 		})
 		);
-	}
+	}*/
 }
 
 

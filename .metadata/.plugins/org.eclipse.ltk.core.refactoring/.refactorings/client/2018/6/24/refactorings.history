@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 1 elements(s) to &apos;Experience.js&apos;&#x0D;&#x0A;- Original project: &apos;client&apos;&#x0D;&#x0A;- Destination element: &apos;Experience.js&apos;&#x0D;&#x0A;- Original element: &apos;Experience.js&apos;" description="Copy file" element1="src/components/dashboard/Experience.js" files="1" flags="589830" folders="0" id="org.eclipse.wst.jsdt.ui.copy" log="src/components/dashboard/Experience.js&#x09;true&#x09;true&#x09;Education.js" policy="org.eclipse.wst.jsdt.ui.copyResources" stamp="1528666791322" target="/client/src/components/dashboard/Experience.js" units="0" version="1.0"/>
+</session>

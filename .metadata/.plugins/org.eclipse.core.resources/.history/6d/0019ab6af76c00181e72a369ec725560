@@ -12,7 +12,6 @@ import { getCurrentProfile, deleteAccount } from '../../actions/profileActions.j
 import Spinner from '../common/Spinner.js';
 import DashboardActionButtons from './DashboardActionButtons';
 import Experience from './Experience';
-import Education from './Education';
 
 class Dashboard extends Component {
 	
@@ -40,7 +39,6 @@ class Dashboard extends Component {
 							
 							{/* TODO: add exp and edu here */}
 							<Experience expData={profile.experience} />
-							<Education eduData={profile.education} />
 							
 							<div style={{ marginBottom:'60px' }} /> {/* should probably change to css instead of adding this inline */}
 

@@ -16,7 +16,7 @@ import isEmpty from '../../validations/is-empty.js';
 import {createProfile, getCurrentProfile } from '../../actions/profileActions.js';
 
 //when using this.props.history to redirect from action. Need to use withRouter
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 
 //TODO: Bug - errors don't disappear after received. submit and return and incorrect url errors still there
@@ -138,7 +138,6 @@ class EditProfile extends Component {
 						<div className="row">
 							<div className="col-md-8 m-auto">
 								
-								<Link to="/dashboard" className="btn btn-light">Go Back</Link>
 								<h1 className="display-4 text-center">Edit Profile</h1>
 								
 								<small className="d-block pb-3">* = required fields</small>

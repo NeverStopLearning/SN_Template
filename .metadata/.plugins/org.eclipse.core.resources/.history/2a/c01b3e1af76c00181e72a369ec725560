@@ -92,7 +92,10 @@ Experience.propTypes = {
 		deleteExperience: PropTypes.func.isRequired
 };
 
-//const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+//	profile: state.profile
+	
+});
 
 
-export default connect(null, { deleteExperience })(Experience);
+export default connect(mapStateToProps, { deleteExperience })(Experience);
