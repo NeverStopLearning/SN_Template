@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 
 //components
 import Spinner from '../common/Spinner.js';
-import ProfileItem from './ProfileItem.js';
 
 //actions
 import { getProfiles } from '../../actions/profileActions.js';
@@ -37,8 +36,7 @@ class Profiles extends Component {
 		}
 		else{
 			if(profiles.length > 0){
-				{/* TODO: need to limit how many profiles are brought in at onces. AND add a search feature*/}
-				profileItems = profiles.map(profile => <ProfileItem key={profile._id} profileData={profile}  /> )
+				profileItems = <h1>TODO: Display Profiles here</h1>
 				
 			}
 			else{

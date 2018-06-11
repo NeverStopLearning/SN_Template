@@ -1,0 +1,25 @@
+import React, { Component } from 'react';
+
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+
+//components
+import isEmpty from '../../validations/is-empty.js';
+
+
+
+class ProfileItem extends Component {
+
+	render(){
+	
+		const { profile } = this.props;
+		
+		return(
+				<div>
+				
+				</div>
+		)
+	}
+}
+
+export default ProfileItem;
