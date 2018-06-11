@@ -146,6 +146,27 @@ export const deleteEducation = (id) => dispatch => {
 }
 
 
+//Get all profiles 
+export const getProfiles = () => dispatch => {
+	dispatch(setProfileLoading());
+//	console.log('ping');
+	axios.get('/api/profile/all')
+	.then(res => {
+		dispatch({
+			type:actions.GET_PROFILES,
+			payload: res.data
+		});
+	})
+	.catch(err => //keep the state null
+	dispatch({
+		type: actions.GET_PROFILES,
+		payload:null
+	})
+	);
+
+}
+
+
 
 
 

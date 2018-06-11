@@ -26,6 +26,7 @@ import CreateProfile from  './components/create-profile/CreateProfile.js';
 import EditProfile from  './components/edit-profile/EditProfile.js';
 import AddExperience from  './components/add-credentials/AddExperience.js';
 import AddEducation from  './components/add-credentials/AddEducation.js';
+import Profiles from  './components/profiles/Profiles.js';
 
 
 
@@ -83,7 +84,8 @@ class App extends Component {
 	       	<div className="container">
 	       		<Route exact path="/login" component={Login} />
 	       		<Route exact path="/register" component={Register} />
-	       		
+				<Route exact path="/profiles" component={Profiles} />
+
 	       		{/* <Route exact path="/dashboard" component={Dashboard} /> */}
 	       		<Switch> {/*redirect in below acts funny without. doesn't seem to pass the props*/}
 	       			<PrivateRoute exact path="/dashboard" component={Dashboard}   /*auth={this.props.auth}*/ />
@@ -103,7 +105,9 @@ class App extends Component {
 				
 				<Switch> {/*redirect in below acts funny without. doesn't seem to pass the props*/}
 					<PrivateRoute exact path="/add-education" component={AddEducation}   /*auth={this.props.auth}*/ />
-				</Switch>		
+				</Switch>	
+				
+					
 	       	</div>
 	       	
 	       	<Footer />

@@ -1,0 +1,49 @@
+//Profile Display
+import React, { Component } from 'react';
+
+//redux
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+
+//components
+import Spinner from '../common/Spinner.js';
+
+//actions
+import { getProfiles } from '../../actions/profileActions.js';
+
+
+class Profiles extends Component {
+	
+	constructor(props){
+		super(props);
+		
+		
+	}
+
+	
+	componentDidMount(){
+		console.log('ping')
+	}
+	
+	
+	render(){
+		return(
+				<div>
+				
+				</div>
+		)
+	}
+}
+
+
+Profiles.propTypes = {
+	profile: PropTypes.object.isRequired,
+	getProfiles: PropTypes.func.isRequired
+};
+
+const mapStateToProps = (state) => ({
+	profile: state.profile
+});
+
+
+export default connect(mapStateToProps, { getProfiles })(Profiles);
