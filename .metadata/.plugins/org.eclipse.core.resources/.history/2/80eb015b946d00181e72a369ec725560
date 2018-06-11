@@ -86,7 +86,7 @@ class App extends Component {
 	       		<Route exact path="/login" component={Login} />
 	       		<Route exact path="/register" component={Register} />
 				<Route exact path="/profiles" component={Profiles} />
-	       		<Route exact path="/profile/:handle" component={Profile} />
+	       		<Route path="/profile" component={Profile} />
 
 	       		{/* <Route exact path="/dashboard" component={Dashboard} /> */}
 	       		<Switch> {/*redirect in below acts funny without. doesn't seem to pass the props*/}

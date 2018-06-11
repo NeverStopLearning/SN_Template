@@ -27,7 +27,6 @@ import EditProfile from  './components/edit-profile/EditProfile.js';
 import AddExperience from  './components/add-credentials/AddExperience.js';
 import AddEducation from  './components/add-credentials/AddEducation.js';
 import Profiles from  './components/profiles/Profiles.js';
-import Profile from  './components/profile/Profile.js';
 
 
 
@@ -86,7 +85,6 @@ class App extends Component {
 	       		<Route exact path="/login" component={Login} />
 	       		<Route exact path="/register" component={Register} />
 				<Route exact path="/profiles" component={Profiles} />
-	       		<Route exact path="/profile/:handle" component={Profile} />
 
 	       		{/* <Route exact path="/dashboard" component={Dashboard} /> */}
 	       		<Switch> {/*redirect in below acts funny without. doesn't seem to pass the props*/}

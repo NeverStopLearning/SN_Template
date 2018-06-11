@@ -25,8 +25,8 @@ class Navbar extends Component {
 
 			      <div className="collapse navbar-collapse" id="mobile-nav">
 			        <ul className="navbar-nav mr-auto">
-			          <li className="nav-item">  {/* must be'/profiles' just 'profiles' will add it to the end of whatever url is currently there. Bug:  '/profile/profiles' <- this shouldn't happen. FIX by adding '/' to 'profile' */}
-			            <Link className="nav-link" to="/profiles"> Developers 
+			          <li className="nav-item">
+			            <Link className="nav-link" to="/profiles"> Developers //J
 			            </Link>
 			          </li>
 			        </ul>
