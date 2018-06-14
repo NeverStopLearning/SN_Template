@@ -31,34 +31,34 @@ class ProfileHeader extends Component {
 	                  <p>
 	                  
 	                  	{isEmpty(profileData.website) ? null : (
-	                  		<a className="text-white p-2" href="#">
+	                  		<a className="text-white p-2" href="_blank">
 	  	                      <i className="fas fa-globe fa-2x"></i>
 	  	                    </a>	
 	                  	)}
 	                  	
 	                  	{isEmpty(profileData.social && profileData.social.twitter) ? null : (
-	                  		<a className="text-white p-2" href="#">
+	                  		<a className="text-white p-2" href="_blank">
 	   	                      <i className="fab fa-twitter fa-2x"></i>
 	   	                    </a>
 	   	                    
 	                  	)}
 	                  	
 	                  	{isEmpty(profileData.social && profileData.social.facebook) ? null : (
-	                  	    <a className="text-white p-2" href="#">
+	                  	    <a className="text-white p-2" href="_blank">
 	   	                      <i className="fab fa-facebook fa-2x"></i>
 	   	                    </a>
 	   	                    	
 	                  	)}
 	                  	
 	                  	{isEmpty(profileData.social && profileData.social.linkedin) ? null : (	                  		
-	   	                    <a className="text-white p-2" href="#">
+	   	                    <a className="text-white p-2" href="_blank">
 	   	                      <i className="fab fa-linkedin fa-2x"></i>
 	   	                    </a>
 	   	                    	
 	                  	)}
 	                  	
 	                  	{isEmpty(profileData.social && profileData.social.instagam) ? null : (
-	   	                    <a className="text-white p-2" href="#">
+	   	                    <a className="text-white p-2" href="_blank">
 	   	                      <i className="fab fa-instagram fa-2x"></i>
 	   	                    </a>
 	                  	)}

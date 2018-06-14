@@ -1,0 +1,51 @@
+import React, { Component } from 'react';
+
+//redux
+//import PropTypes from 'prop-types';
+
+//validation
+import isEmpty from '../../validations/is-empty.js';
+
+
+class ProfileAbout extends Component {
+		
+	render(){	
+	
+		const { profileData } = this.props;
+
+		//Get first name
+		const firstName = profileData.user.name.trim().split(' ')[0];
+		
+		return(
+				<div className="row">
+	            <div className="col-md-12">
+	              <div className="card card-body bg-light mb-3">
+	                <h3 className="text-center text-info">{firstName}'s Bio</h3>
+	                <p className="lead">
+	                	{ isEmpty(profileData.bio) ? null: (<span>{profileData.bio}</span>) } {/* TIPS: need '{}' again when wrapped in '()'  */}
+	                </p>
+	                <hr />
+	                <h3 className="text-center text-info">Skill Set</h3>
+	                <div className="row">
+	                  <div className="d-flex flex-wrap justify-content-center align-items-center">
+	                    <div className="p-3">
+	                      <i className="fa fa-check"></i> HTML</div>
+	                    <div className="p-3">
+	                      <i className="fa fa-check"></i> CSS</div>
+	                    <div className="p-3">
+	                      <i className="fa fa-check"></i> JavaScript</div>
+	                    <div className="p-3">
+	                      <i className="fa fa-check"></i> Python</div>
+	                    <div className="p-3">
+	                      <i className="fa fa-check"></i> C#</div>
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+
+		)
+	}
+}
+
+export default ProfileAbout;
