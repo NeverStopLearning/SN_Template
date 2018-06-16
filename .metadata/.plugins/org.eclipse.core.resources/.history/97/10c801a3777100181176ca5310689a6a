@@ -1,0 +1,11 @@
+import React from 'react';
+
+
+/* Used for DUMB components - components that never have state and use no life cycle methods.  */
+export default () => {
+		return(
+				<div>
+				
+				</div>
+		)
+}

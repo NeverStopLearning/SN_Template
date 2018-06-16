@@ -3,23 +3,6 @@ import React from 'react';
 
 /* Used for DUMB components - components that never have state and use no life cycle methods.  */
 export default () => {
-		return(
-				<div>
-				
-				</div>
-		)
-}
-
-
-
-
-
-
-/*import React from 'react';
-
-
- Used for DUMB components - components that never have state and use no life cycle methods.  
-export default () => {
 //	render(){ No render() in this creation method
 		return(
 				<div>
@@ -27,7 +10,7 @@ export default () => {
 				</div>
 		)
 //	}
-}*/
+}
 
 // or
 

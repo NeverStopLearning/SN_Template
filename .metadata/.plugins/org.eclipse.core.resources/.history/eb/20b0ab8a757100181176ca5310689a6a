@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import {Link} from 'react-router-dom';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 
 
 class ProfileGithub extends Component {
@@ -28,9 +28,7 @@ class ProfileGithub extends Component {
 		fetch(`https://api.github.com/users/${username}/repos?per_page=${count}&sort=${sort}&client_id=${clientId}&client_secret=${clientSecret}`)
 			.then(res => res.json())//have to map to json first when using fetch
 			.then(data => {
-				if(this.refs.myRef){ //TODO: need to look into whats going on here. is 'ref' an array or something? Fixes an error- "loading to null" 
-					this.setState({repos:data});
-				}
+				this.setState({repos:data});
 			})
 			.catch(err => console.log("Error >>>>>> ", err));
 	}
@@ -57,7 +55,7 @@ class ProfileGithub extends Component {
 			                    Stars: {repo.stargazers_count}
 			                  </span>
 			                  <span className="badge badge-secondary mr-1">
-			                    Watchers: {repo.watchers_count}
+			                    Watchers: {repo.watcher_count}
 			                  </span>
 			                  <span className="badge badge-success">
 			                    Forks: {repo.forks_count}
@@ -77,11 +75,5 @@ class ProfileGithub extends Component {
 		)
 	}
 }
-
-
-ProfileGithub.propTypes = {
-		username: PropTypes.string.isRequired
-};
-
 
 export default ProfileGithub;

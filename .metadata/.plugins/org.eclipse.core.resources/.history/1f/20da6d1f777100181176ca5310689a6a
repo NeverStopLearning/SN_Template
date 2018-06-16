@@ -28,7 +28,7 @@ class ProfileGithub extends Component {
 		fetch(`https://api.github.com/users/${username}/repos?per_page=${count}&sort=${sort}&client_id=${clientId}&client_secret=${clientSecret}`)
 			.then(res => res.json())//have to map to json first when using fetch
 			.then(data => {
-				if(this.refs.myRef){ //TODO: need to look into whats going on here. is 'ref' an array or something? Fixes an error- "loading to null" 
+				if(this.refs.myRef){ //TODO: need to look into whats going on here. Fixes an error- "loading to null" 
 					this.setState({repos:data});
 				}
 			})
