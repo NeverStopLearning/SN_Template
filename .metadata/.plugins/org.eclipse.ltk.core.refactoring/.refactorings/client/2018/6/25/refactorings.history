@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;client/src/components/posts/Posts&apos; to &apos;Posts.js&apos;" description="Rename resource &apos;Posts&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/components/posts/Posts" name="Posts.js" stamp="1529196689528" updateReferences="true"/>
+</session>

@@ -25,10 +25,12 @@ class Navbar extends Component {
 
 			      <div className="collapse navbar-collapse" id="mobile-nav">
 			        <ul className="navbar-nav mr-auto">
+			        			          
 			          <li className="nav-item">  {/* must be'/profiles' just 'profiles' will add it to the end of whatever url is currently there. Bug:  '/profile/profiles' <- this shouldn't happen. FIX by adding '/' to 'profile' */}
 			            <Link className="nav-link" to="/profiles"> Developers 
 			            </Link>
 			          </li>
+			          
 			        </ul>
 
 			        {this.Links(isAuthenticated, user)}
@@ -45,11 +47,24 @@ class Navbar extends Component {
 //		console.log('isAuthenticated: ', isAuthenticated);
 //		console.log('user: ', user);
 		
-		//??? Why is this 'var = ();' what is this style used for? 
+		//??? Why is this 'var = ();' what is this style used for? -A- I think () acts as a holder for jsx/html in a var. As well as () is shorthand and handles the return implicitly sometimes
 		
+		/* TODO: rework the classes/css to be more 'responsive' */
 		if(isAuthenticated){
-			const authLinks = (
-					<ul className="navbar-nav ml-auto">
+			const authLinks = ( 
+					<ul className="navbar-nav ml-auto">					
+
+			          <li className="nav-item">  
+				        <Link className="nav-link" to="/feed"> Post Feed 
+				        </Link>
+			          </li>
+			        
+			          <li className="nav-item">  
+			            <Link className="nav-link" to="/dashboard"> Dashboard 
+			            </Link>
+			          </li>
+					
+					
 			          <li className="nav-item">
 			            <a className="nav-link" onClick={this.handleLogout.bind(this)} > 
 			            	<img src={user.avatar} 

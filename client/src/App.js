@@ -29,6 +29,7 @@ import AddEducation from  './components/add-credentials/AddEducation.js';
 import Profiles from  './components/profiles/Profiles.js';
 import Profile from  './components/profile/Profile.js';
 import NotFound from  './components/not-found/NotFound.js';
+import Posts from  './components/posts/Posts.js';
 
 
 
@@ -108,6 +109,10 @@ class App extends Component {
 				
 				<Switch> {/*redirect in below acts funny without. doesn't seem to pass the props*/}
 					<PrivateRoute exact path="/add-education" component={AddEducation}   /*auth={this.props.auth}*/ />
+				</Switch>	
+				
+				<Switch> {/*redirect in below acts funny without. doesn't seem to pass the props*/}
+					<PrivateRoute exact path="/feed" component={Posts}   /*auth={this.props.auth}*/ />
 				</Switch>	
 				
 		       	<Route exact path="/not-found" component={NotFound} />

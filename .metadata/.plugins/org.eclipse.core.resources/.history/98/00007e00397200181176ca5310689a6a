@@ -1,0 +1,26 @@
+import React, { Component } from 'react';
+
+//redux
+import { connect } from 'react-redux';
+
+//util
+//import PropTypes from 'prop-types';
+
+
+
+class PostForm extends Component {
+	render(){
+		return(
+				<div>
+				
+				</div>
+		)
+	}
+}
+
+
+//PostForm.propTypes = {};
+
+//const mapStateToProps = (state) => ({});
+
+export default connect(null)(PostForm);

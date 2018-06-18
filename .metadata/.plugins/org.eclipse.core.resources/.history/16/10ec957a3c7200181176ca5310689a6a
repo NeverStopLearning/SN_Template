@@ -1,0 +1,67 @@
+import React, { Component } from 'react';
+
+//redux
+import { connect } from 'react-redux';
+
+//util
+//import PropTypes from 'prop-types';
+import TextAreaFieldGroup from '../common/TextAreaFieldGroup.js';
+
+
+
+class PostForm extends Component {
+	
+	constructor(props){
+		super(props);
+		
+		this.state ={
+			text:'',
+			errors:{}
+				
+		};
+		
+		this.handleChange = this.handleChange.bind(this);
+		
+	}
+	
+	render(){
+		
+		const {errors} = this.state; 
+		
+		return(
+			  <div className="post-form mb-3">
+	            <div className="card card-info">
+	              <div className="card-header bg-info text-white">
+	                Say Somthing...
+	              </div>
+	              <div className="card-body">
+	                <form>
+	                  <div className="form-group">
+		                  <TextAreaFieldGroup
+		                  	placeholder="Create a post" 
+		                  	type="text"
+		                  	value={this.state.text}
+		                  	onChange={this.handleChange} 
+		                  	error={errors.text}
+		                  />	                 
+		              </div>
+	                  <button type="submit" className="btn btn-dark">Submit</button>
+	                </form>
+	              </div>
+	            </div>
+	          </div>
+		)
+	}
+	
+	handleChange(ev){
+		console.log(ev.target);
+		this.setState({ [ev.target.name]: ev.target.value });
+	}
+}
+
+
+//PostForm.propTypes = {};
+
+//const mapStateToProps = (state) => ({});
+
+export default connect(null)(PostForm);
