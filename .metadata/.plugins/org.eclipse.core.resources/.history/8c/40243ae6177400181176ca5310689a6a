@@ -112,7 +112,7 @@ PostItem.propTypes = {
 };
 
 PostItem.defaultProps = {
-		showActions: true
+		showActions: "true"
 }
 
 const mapStateToProps = (state) => ({

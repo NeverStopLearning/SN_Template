@@ -111,10 +111,6 @@ PostItem.propTypes = {
 		showActions: PropTypes.bool
 };
 
-PostItem.defaultProps = {
-		showActions: true
-}
-
 const mapStateToProps = (state) => ({
 	auth: state.auth
 });

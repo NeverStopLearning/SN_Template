@@ -108,12 +108,8 @@ PostItem.propTypes = {
 		deletePost: PropTypes.func.isRequired,
 		addLike: PropTypes.func.isRequired,
 		removeLike: PropTypes.func.isRequired,
-		showActions: PropTypes.bool
+		showActions: PropTypes.boolean
 };
-
-PostItem.defaultProps = {
-		showActions: true
-}
 
 const mapStateToProps = (state) => ({
 	auth: state.auth

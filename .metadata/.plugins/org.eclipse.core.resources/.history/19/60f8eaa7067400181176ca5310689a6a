@@ -51,16 +51,16 @@ export const getPosts = () => dispatch => {
 //Get Post
 export const getPost = (id) => dispatch => {
 	dispatch(setPostsLoading());
-	axios.get(`/api/posts/${id}`)
+	axios.get('/api/posts')
 	.then(res => 
 	dispatch({
-		type: actions.GET_POST,
+		type: actions.GET_POSTS,
 		payload: res.data
 	})		
 	)
 	.catch(err =>
 	dispatch({
-		type:actions.GET_POST,
+		type:actions.GET_POSTS,
 		payload: null
 	})
 	);

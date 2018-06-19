@@ -33,7 +33,6 @@ class PostItem extends Component {
 	                  	{post.text}
 	                  </p>
 	                  {showActions ? (
-	                		<span>	                  
 	                		  <button onClick={this.handleLike.bind(this, post._id)} type="button" className="btn btn-light mr-1">
 		  	                    <i className={cn('fas fa-thumbs-up', {
 		  	                    	'text-info': this.findUserLike(post.likes)
@@ -56,8 +55,7 @@ class PostItem extends Component {
 		  	                           )
 		  	                           :
 		  	                        	null
-		  	                   }
-		  	                  </span>
+		  	                   }	  
 		                  )	                  
 	                		  : null
 	                  }
@@ -108,12 +106,8 @@ PostItem.propTypes = {
 		deletePost: PropTypes.func.isRequired,
 		addLike: PropTypes.func.isRequired,
 		removeLike: PropTypes.func.isRequired,
-		showActions: PropTypes.bool
+		showActions: PropTypes.boolean
 };
-
-PostItem.defaultProps = {
-		showActions: true
-}
 
 const mapStateToProps = (state) => ({
 	auth: state.auth

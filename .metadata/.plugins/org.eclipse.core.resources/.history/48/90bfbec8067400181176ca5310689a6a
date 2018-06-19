@@ -22,12 +22,6 @@ export default function(state = initialState, action){
 			posts: action.payload,
 			loading: false
 		}
-		case actions.GET_POST:
-			return{ //TODO: need to understand this part better
-			...state,
-			post: action.payload,
-			loading: false
-		}
 		case actions.POST_LOADING:
 			return{ //TODO: need to understand this part better
 			...state,
