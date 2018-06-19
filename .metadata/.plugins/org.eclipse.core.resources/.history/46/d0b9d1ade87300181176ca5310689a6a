@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 //util
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import cn from 'classnames';
+//import cn from 'classnames';
 
 //redux
 import { connect } from 'react-redux';
@@ -33,9 +33,7 @@ class PostItem extends Component {
 	                  	{post.text}
 	                  </p>
 	                  <button onClick={this.handleLike.bind(this, post._id)} type="button" className="btn btn-light mr-1">
-	                    <i className={cn('fas fa-thumbs-up', {
-	                    	'text-info': this.findUserLike(post.likes)
-	                    })} ></i>
+	                    <i className="text-info fas fa-thumbs-up"></i>
 	                    <span className="badge badge-light">{post.likes.length}</span>
 	                  </button>
 	                  {/* TODO: make this only visible when user has as 'like' they can remove...or change colors to toggle a 'like'? */}
@@ -69,26 +67,24 @@ class PostItem extends Component {
 		
 	}
 	
-	//---TODO: change this to a toggle action [ use findUserLike() ]----
+	
 	handleLike(id){
 //		console.log(id);
 		this.props.addLike(id);
 	}
-		
+	
+	
 	handleUnlike(id){
 //		console.log(id);
 		this.props.removeLike(id);
 	}
-	//-------------
+	
 	
 	findUserLike(likes){
 		const { auth } = this.props;
 		
 		if(likes.filter(like => like.user === auth.user.id).length > 0 ){
 			return true;
-		}
-		else{
-			return false;
 		}
 		
 	}

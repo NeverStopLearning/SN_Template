@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 //util
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import cn from 'classnames';
+//import cn from 'classnames';
 
 //redux
 import { connect } from 'react-redux';
@@ -69,17 +69,18 @@ class PostItem extends Component {
 		
 	}
 	
-	//---TODO: change this to a toggle action [ use findUserLike() ]----
+	
 	handleLike(id){
 //		console.log(id);
 		this.props.addLike(id);
 	}
-		
+	
+	
 	handleUnlike(id){
 //		console.log(id);
 		this.props.removeLike(id);
 	}
-	//-------------
+	
 	
 	findUserLike(likes){
 		const { auth } = this.props;

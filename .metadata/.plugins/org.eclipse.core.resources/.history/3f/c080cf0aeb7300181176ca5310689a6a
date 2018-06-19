@@ -69,17 +69,18 @@ class PostItem extends Component {
 		
 	}
 	
-	//---TODO: change this to a toggle action [ use findUserLike() ]----
+	
 	handleLike(id){
 //		console.log(id);
 		this.props.addLike(id);
 	}
-		
+	
+	
 	handleUnlike(id){
 //		console.log(id);
 		this.props.removeLike(id);
 	}
-	//-------------
+	
 	
 	findUserLike(likes){
 		const { auth } = this.props;

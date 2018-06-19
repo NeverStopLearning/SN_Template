@@ -28,7 +28,7 @@ export const addPost = postData => dispatch => {
 
 
 
-//Get Posts
+//Get Post
 export const getPosts = () => dispatch => {
 	dispatch(setPostsLoading());
 	axios.get('/api/posts')
@@ -49,52 +49,19 @@ export const getPosts = () => dispatch => {
 
 //Delete Post
 export const deletePost = (id) => dispatch => {
-//	console.log(id);
-	axios.delete('/api/posts/'+id)
+	axios.delete('/api/posts', id)
 		.then(res => 
 			dispatch({
-				type: actions.DELETE_POST,
-				payload: id
+				type: actions.GET_POSTS,
+				payload: res.data
 			})		
 		)
 		.catch(err =>
 			dispatch({
-				type:actions.GET_ERRORS,
-				payload: err.response.data
+				type:actions.GET_POSTS,
+				payload: null
 			})
 		);
-};
-
-
-//Add Like
-export const addLike = (id) => dispatch => {
-//	console.log(id);
-	axios.post('/api/posts/like/'+id)
-	.then(res => 
-		dispatch(getPosts())		
-	)
-	.catch(err =>
-	dispatch({
-		type:actions.GET_ERRORS,
-		payload: err.response.data
-	})
-	);
-};
-
-
-//Remove Like
-export const removeLike = (id) => dispatch => {
-//	console.log(id);
-	axios.post('/api/posts/unlike/'+id)
-	.then(res => 
-	dispatch(getPosts())		
-	)
-	.catch(err =>
-	dispatch({
-		type:actions.GET_ERRORS,
-		payload: err.response.data
-	})
-	);
 };
 
 

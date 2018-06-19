@@ -27,10 +27,10 @@ export default function(state = initialState, action){
 			...state,
 			loading: true
 		}
-		case actions.DELETE_POST://I think this is - instead of reloading the data from the db, we send the call and use the id to remove the value from the state...I think
+		case actions.DELETE_POST:
 			return{ //TODO: need to understand this part better
 			...state,
-			posts: state.posts.filter(post => post._id !== action.payload)
+			posts: state.posts.filter(post => post._id !== action.payload);
 		}
 		default:
 			return state;
