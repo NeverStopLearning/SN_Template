@@ -41,7 +41,7 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
 	const newPost = new Post({
 			text: req.body.text,
 			name: req.body.name,
-			avatar: req.body.name, //not sure why this is like this but wait til the end to see if this works
+			avatar: req.body.avatar, //req.body.name -to> req.body.avatar
 			user: req.user.id
 	})
 	

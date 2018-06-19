@@ -1,0 +1,40 @@
+import React, { Component } from 'react';
+
+//util
+import PropTypes from 'prop-types';
+//import { Link } from 'react-router-dom';
+//import cn from 'classnames';
+
+//redux
+import { connect } from 'react-redux';
+ 	
+//actions
+
+
+
+class PostItem extends Component {
+	render(){
+		
+		const { post, auth } = this.props;
+		
+		return(
+				<div>
+				
+				</div>
+		)
+	}
+}
+
+
+PostItem.propTypes = {
+		auth: PropTypes.object.isRequired,
+		post: PropTypes.object.isRequired
+};
+
+const mapStateToProps = (state) => ({
+	auth: state.auth
+});
+
+
+
+export default connect(mapStateToProps)(PostItem);

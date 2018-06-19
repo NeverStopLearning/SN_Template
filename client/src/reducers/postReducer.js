@@ -16,6 +16,17 @@ export default function(state = initialState, action){
 				...state,
 				posts:[action.payload, ...state.posts]
 			}
+		case actions.GET_POSTS:
+			return{ //TODO: need to understand this part better
+			...state,
+			posts: action.payload,
+			loading: false
+		}
+		case actions.POST_LOADING:
+			return{ //TODO: need to understand this part better
+			...state,
+			loading: true
+		}
 		default:
 			return state;
 		

@@ -1,0 +1,24 @@
+import React, { Component } from 'react';
+
+//import PropTypes from 'prop-types';
+
+//component
+import PostItem from './PostItem.js';
+
+
+class PostFeed extends Component {
+	render(){
+		return(
+				<div>
+				
+				</div>
+		)
+	}
+}
+
+
+PostFeed.propTypes = {
+		posts: PropTypes.object.isRequired
+};
+
+export default PostFeed;

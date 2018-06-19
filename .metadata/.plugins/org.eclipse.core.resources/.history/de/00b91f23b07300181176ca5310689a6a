@@ -1,0 +1,68 @@
+import React, { Component } from 'react';
+
+//util
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+//import cn from 'classnames';
+
+//redux
+import { connect } from 'react-redux';
+ 	
+//actions
+
+
+
+class PostItem extends Component {
+	render(){
+		
+		const { post, auth } = this.props;
+		
+		//"https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200"
+		return(
+				<div className="card card-body mb-3">
+	              <div className="row">
+	                <div className="col-md-2">
+	                  <Link to="/profile">
+	                    <img className="rounded-circle d-none d-md-block" src="//www.gravatar.com/avatar/bf24459e4b3bef395d7f5e33c8b73de6?s=200&r=pg&d=mm"
+	                      alt="" />
+	                  </Link>
+	                  <br />
+	                  <p className="text-center">{post.name}</p>
+	                </div>
+	                <div className="col-md-10">
+	                  <p className="lead">
+	                  	{post.text}
+	                  </p>
+	                  <button type="button" className="btn btn-light mr-1">
+	                    <i className="text-info fas fa-thumbs-up"></i>
+	                    <span className="badge badge-light">4</span>
+	                  </button>
+	                  <button type="button" className="btn btn-light mr-1">
+	                    <i className="text-secondary fas fa-thumbs-down"></i>
+	                  </button>
+	                  <a href="post.html" className="btn btn-info mr-1">
+	                    Comments
+	                  </a>
+	                  {/*<button type="button" className="btn btn-danger mr-1">
+	                    <i className="fas fa-times" />
+	                  </button>*/}
+	                </div>
+	              </div>
+	            </div>
+		)
+	}
+}
+
+
+PostItem.propTypes = {
+		auth: PropTypes.object.isRequired,
+		post: PropTypes.object.isRequired
+};
+
+const mapStateToProps = (state) => ({
+	auth: state.auth
+});
+
+
+
+export default connect(mapStateToProps)(PostItem);

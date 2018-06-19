@@ -24,7 +24,40 @@ export const addPost = postData => dispatch => {
 				payload: err.response.data
 			})
 		);
+};
+
+
+
+//Get Post
+export const getPosts = () => dispatch => {
+	dispatch(setPostsLoading());
+	axios.get('/api/posts')
+		.then(res => 
+			dispatch({
+				type: actions.GET_POSTS,
+				payload: res.data
+			})		
+		)
+		.catch(err =>
+			dispatch({
+				type:actions.GET_POSTS,
+				payload: null
+			})
+		);
+};
+
+
+
+//Set loading state
+export const setPostsLoading = () => {
+	return {
+		type: actions.POST_LOADING
+	}
 }
+
+
+
+
 
 
 
