@@ -244,11 +244,13 @@ router.post('/comment/:post_id', passport.authenticate('jwt', { session: false }
 	Post.findById(req.params.post_id)
 	.then(post => {
 		
+//		console.log("req: ", req);
+		
 		const newComment = {
 				text: req.body.text,
 				name: req.body.name,
 				avatar: req.body.avatar,					
-				user: req.body.user
+				user: req.user.id
 		};
 		
 

@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 import PostItem from '../posts/PostItem.js';
 import Spinner from '../common/Spinner.js';
 import CommentForm from './CommentForm.js';
+import CommentFeed from './CommentFeed.js';
 
 //actions
 import { getPost } from '../../actions/postActions.js';
@@ -36,6 +37,7 @@ class Post extends Component {
 					<div>
 						<PostItem post={post} showActions={false} /* y is this not a string? */ />
 						<CommentForm postId={post._id} />
+						<CommentFeed postId={post._id} comments={post.comments} />
 					</div>
 			);
 		}

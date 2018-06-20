@@ -1,0 +1,17 @@
+import * as actions from '../actions/types.js';
+
+
+const initialState = {};
+
+export default function(state = initialState, action){
+	//this area is hit every request no matter who makes it
+//	console.log("errorsRe: ", action);
+	switch(action.type){
+		case actions.GET_ERRORS:
+			return action.payload;
+			
+		default:
+			return state;
+	}
+}
+

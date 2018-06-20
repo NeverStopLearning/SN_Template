@@ -1,0 +1,38 @@
+import React, { Component } from 'react';
+
+//redux
+import { connect } from 'react-redux';
+
+//util
+import PropTypes from 'prop-types';
+
+//actions
+import { deleteComment } from '../../actions/postActions.js';
+
+
+
+class CommentItem extends Component {
+	render(){
+		
+		const { comment, postId, auth } = this.props;
+		
+		return(
+				<div>
+				
+				</div>
+		)
+	}
+}
+
+CommentItem.propTypes = {
+		deleteComment: PropTypes.func.isRequired,
+		comment: PropTypes.object.isRequired,
+		postId: PropTypes.string.isRequired,
+		auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+	auth: state.auth
+});
+
+export default connect(mapStateToProps, { deleteComment })(CommentItem);

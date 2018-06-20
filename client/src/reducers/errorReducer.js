@@ -7,6 +7,9 @@ export default function(state = initialState, action){
 	//this area is hit every request no matter who makes it
 //	console.log("errorsRe: ", action);
 	switch(action.type){
+		case actions.CLEAR_ERRORS:
+			return {};
+			
 		case actions.GET_ERRORS:
 			return action.payload;
 			

@@ -1,0 +1,25 @@
+import React, { Component } from 'react';
+import PropTypes = 'prop-types';
+
+//component
+import CommentItem from './CommentItem.js';
+
+
+class CommentFeed extends Component {
+	render(){
+		return(
+				<div>
+				
+				</div>
+		)
+	}
+}
+
+
+CommentFeed.propType = {
+	comments: PropTypes.array.isRequired,
+	postId: PropTypes.string.isRequired
+};
+
+
+export default CommentFeed;
