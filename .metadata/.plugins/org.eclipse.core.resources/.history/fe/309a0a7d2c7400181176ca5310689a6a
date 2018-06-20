@@ -121,11 +121,11 @@ export const removeLike = (id) => dispatch => {
 
 
 //Add Comment
-export const addComment = (postId, commentData) => dispatch => {
-	axios.post(`/api/posts/comment/${postId}`, commentData)
+export const addPost = (postId, commentData) => dispatch => {
+	axios.post('/api/posts', commentData)
 		.then(res => 
 			dispatch({
-				type: actions.GET_POST,
+				type: actions.ADD_POST,
 				payload: res.data
 			})		
 		)

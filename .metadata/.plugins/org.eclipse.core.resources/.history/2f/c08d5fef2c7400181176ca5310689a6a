@@ -125,7 +125,7 @@ export const addComment = (postId, commentData) => dispatch => {
 	axios.post(`/api/posts/comment/${postId}`, commentData)
 		.then(res => 
 			dispatch({
-				type: actions.GET_POST,
+				type: actions.ADD_POST,
 				payload: res.data
 			})		
 		)

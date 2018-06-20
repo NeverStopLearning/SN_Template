@@ -35,7 +35,6 @@ class Post extends Component {
 			postContent = (
 					<div>
 						<PostItem post={post} showActions={false} /* y is this not a string? */ />
-						<CommentForm postId={post._id} />
 					</div>
 			);
 		}
