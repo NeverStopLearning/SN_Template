@@ -45,7 +45,7 @@ app.use('/api/profile', profile);
 //Server static assests if in productions. - Routes added for production after front finished
 if(process.env.NODE_ENV === 'production'){
 	//Set static folder
-	app.use(express.static('client/build'));
+	app.use('client/build');
 	
 	app.get('*', (req,res)=>{
 		//TODO: what does this do?
