@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 1 elements(s) to &apos;keys_dev.js&apos;&#x0D;&#x0A;- Original project: &apos;sn_connector&apos;&#x0D;&#x0A;- Destination element: &apos;keys_dev.js&apos;&#x0D;&#x0A;- Original element: &apos;keys_dev.js&apos;" description="Copy file" element1="config/keys_dev.js" files="1" flags="589830" folders="0" id="org.eclipse.wst.jsdt.ui.copy" log="config/keys_dev.js&#x09;true&#x09;true&#x09;keys_prod.js" policy="org.eclipse.wst.jsdt.ui.copyResources" stamp="1529533920455" target="/sn_connector/config/keys_dev.js" units="0" version="1.0"/>
+</session>
