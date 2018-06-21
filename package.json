@@ -2,10 +2,10 @@
   "name": "connector",
   "version": "1.0.0",
   "description": "Social network template",
-  "main": "/sn_connector/server/server.js",
+  "main": "./sn_connector/server/server.js",
   "scripts": {  
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client && npm install --prefix sn_connector"
- },
+    "heroku-postbuild": "cd sn_connector && npm run heroku-postbuild"
+  },
   "author": "GB",
   "license": "ISC"
 
