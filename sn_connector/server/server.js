@@ -7,6 +7,10 @@ const users = require('../routes/api/users');
 const posts = require('../routes/api/posts');
 const profile = require('../routes/api/profile');
 
+//brought in for production
+const path = require('path');
+
+
 
 const app = express();
 
@@ -37,6 +41,19 @@ require('../config/passport_config.js')(passport);
 app.use('/api/users', users);
 app.use('/api/posts', posts);
 app.use('/api/profile', profile);
+
+//Server static assests if in productions. - Routes added for production after front finished
+if(process.env.NODE_ENV === 'production'){
+	//Set static folder
+	app.use('client/build');
+	
+	app.get('*', (req,res)=>{
+		//TODO: what does this do?
+		res.sendFile(path.resolve(__dirname,'client','build','index.html'));
+	});
+}
+
+
 
 const port = process.env.PORT || 5000; // first part is for running on Heroku
 

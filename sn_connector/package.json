@@ -8,8 +8,10 @@
     "server": "nodemon server/server",
     "ctest": "cd ../client && npm run testt",
     "client": "cd ../client && npm run start",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
-  },
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "client-install":"npm install --prefix client",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+ },
   "author": "GB",
   "license": "ISC",
   "dependencies": {
