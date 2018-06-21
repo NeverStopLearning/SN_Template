@@ -2,9 +2,8 @@
   "name": "connector",
   "version": "1.0.0",
   "description": "Social network template",
-  "scripts": {    
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "client-install":"npm install --prefix client",
+  "main": "/sn_connector/server/server.js",
+  "scripts": {  
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client && npm install --prefix sn_connector"
  },
   "author": "GB",
