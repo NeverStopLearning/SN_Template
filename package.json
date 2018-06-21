@@ -8,6 +8,6 @@
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client && npm install --prefix sn_connector"
  },
   "author": "GB",
-  "license": "ISC",
+  "license": "ISC"
 
 }
